@@ -1,544 +1,947 @@
 <!DOCTYPE html>
+
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ITAM PAY</title>
+  <meta charset="UTF-8">
 
-<link rel="manifest" href="manifest.json">
+<meta name="viewport"
+     content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-  box-sizing: border-box;
-}
+<meta name="theme-color"
+     content="#1565C0">
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f3f5f9;
-  color: #222;
-}
+<meta name="description"
+     content="ITAM PAY - PPOB • Transfer • Pembayaran Digital">
 
-.header {
-  background: #1565C0;
-  color: white;
-  text-align: center;
-  padding: 22px 15px 24px;
-}
+  <link rel="manifest" href="manifest.json">
 
-.header h1 {
-  margin: 0;
-  font-size: 28px;
-  font-weight: bold;
-}
+  <title>ITAM PAY</title>
 
-.header p {
-  margin: 5px 0 0;
-  font-size: 14px;
-}
+  <style>
 
-.bismillah {
-  margin-top: 10px;
-  font-family: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", serif;
-  font-size: 20px;
-  direction: rtl;
-  line-height: 1.8;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 18px;
-}
+    body {
+      background: #f3f5f9;
+      padding: 10px;
+    }
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 18px;
-}
+    .container {
+      width: 100%;
+      max-width: 100%;
+      margin: auto;
+    }
 
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
+    /* HEADER */
 
-.card-title {
-  font-size: 13px;
-  color: #777;
-}
+    .header {
+      background: #1565C0;
+      color: #fff;
+      border-radius: 22px;
+      padding: 38px 25px;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
+      margin-bottom: 20px;
+    }
 
-.card-value {
-  margin-top: 6px;
-  font-size: 22px;
-  font-weight: bold;
-  color: #1565C0;
-}
+    .header h1 {
+      font-size: 52px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-.form-box,
-.history-box {
-  background: white;
-  border-radius: 12px;
-  padding: 18px;
-  margin-bottom: 18px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
+    .header p {
+      margin-top: 8px;
+      font-size: 21px;
+    }
 
-h2 {
-  margin-top: 0;
-  font-size: 18px;
-}
+    /* DASHBOARD */
 
-label {
-  display: block;
-  margin-top: 12px;
-  margin-bottom: 5px;
-  font-size: 14px;
-  font-weight: bold;
-}
+    .dashboard {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
 
-select,
-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 15px;
-  background: white;
-}
+    .card {
+      flex: 1;
+      background: #fff;
+      border-radius: 18px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    }
 
-button {
-  width: 100%;
-  margin-top: 16px;
-  padding: 13px;
-  border: none;
-  border-radius: 8px;
-  background: #1565C0;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .icon {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
 
-button:active {
-  transform: scale(0.98);
-}
+    .angka {
+      font-size: 40px;
+      font-weight: bold;
+      color: #1565C0;
+      margin-bottom: 8px;
+    }
 
-.history-item {
-  border-bottom: 1px solid #eee;
-  padding: 12px 0;
-}
+    .judul {
+      font-size: 20px;
+      color: #666;
+    }
 
-.history-item:last-child {
-  border-bottom: none;
-}
+    /* FORM */
 
-.history-main {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
+    .formBox {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    }
 
-.history-name {
-  font-weight: bold;
-}
+    label {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-.history-amount {
-  font-weight: bold;
-  color: #1565C0;
-}
+    select,
+    input {
+      width: 100%;
+      height: 72px;
+      border: 1px solid #d8d8d8;
+      border-radius: 16px;
+      padding: 0 18px;
+      font-size: 25px;
+      outline: none;
+      background: #fff;
+    }
 
-.history-detail {
-  margin-top: 4px;
-  font-size: 13px;
-  color: #777;
-}
+    select:focus,
+    input:focus {
+      border: 2px solid #1565C0;
+    }
 
-.delete-btn {
-  width: auto;
-  margin-top: 8px;
-  padding: 6px 10px;
-  background: #d32f2f;
-  font-size: 12px;
-}
+    /* BUTTON */
 
-.empty {
-  text-align: center;
-  color: #888;
-  padding: 10px;
-}
+    button {
+      width: 100%;
+      height: 72px;
+      border: none;
+      border-radius: 18px;
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
 
-.loading {
-  text-align: center;
-  color: #888;
-  padding: 10px;
-}
-</style>
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .btnSave {
+      margin-top: 30px;
+      background: #2E7D32;
+    }
+
+    .btnSave:hover {
+      background: #1B5E20;
+    }
+
+    /* RIWAYAT */
+
+    .history {
+      margin-top: 22px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    }
+
+    .history h3 {
+      font-size: 26px;
+      color: #1565C0;
+      margin-bottom: 18px;
+    }
+
+    .historyList {
+      max-height: 420px;
+      overflow-y: auto;
+    }
+
+    .itemRiwayat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 20px;
+    }
+
+    .itemRiwayat > div:first-child {
+      flex: 1;
+    }
+
+    .itemRiwayat > div:nth-child(2) {
+      min-width: 130px;
+    }
+
+    .btnDelete {
+      width: 38px !important;
+      height: 38px !important;
+      min-width: 38px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      border-radius: 10px;
+      background: #D32F2F;
+      color: #fff;
+      font-size: 18px;
+      line-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .btnDelete:hover {
+      background: #B71C1C;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 480px) {
+
+      body {
+        padding: 8px;
+      }
+
+      .header {
+        padding: 34px 18px;
+      }
+
+      .header h1 {
+        font-size: 46px;
+      }
+
+      .header p {
+        font-size: 19px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .icon {
+        font-size: 44px;
+      }
+
+      .angka {
+        font-size: 34px;
+      }
+
+      .judul {
+        font-size: 18px;
+      }
+
+      label {
+        font-size: 20px;
+      }
+
+      select,
+      input {
+        height: 68px;
+        font-size: 23px;
+      }
+
+      button {
+        height: 68px;
+        font-size: 26px;
+      }
+
+      .history h3 {
+        font-size: 24px;
+      }
+
+      .itemRiwayat {
+        font-size: 18px;
+      }
+
+      .itemRiwayat > div:nth-child(2) {
+        min-width: 110px;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 <body>
 
+  <div class="container">
+
 <div class="header">
+
   <h1>ITAM PAY</h1>
+
   <p>PPOB • Transfer • Pembayaran Digital</p>
 
-  <div class="bismillah">
-    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-  </div>
 </div>
 
-<div class="container">
 
-  <div class="cards">
-    <div class="card">
-      <div class="card-title">📋 Transaksi Hari Ini</div>
-      <div class="card-value" id="jumlahTransaksi">0</div>
-    </div>
+<div class="dashboard">
 
-    <div class="card">
-      <div class="card-title">💰 Pendapatan Admin</div>
-      <div class="card-value" id="totalAdmin">Rp 0</div>
-    </div>
+  <div class="card">
+
+    <div class="icon">📋</div>
+
+    <div id="jumlahTransaksi" class="angka">0</div>
+
+    <div class="judul">Transaksi Hari Ini</div>
+
   </div>
 
-  <div class="form-box">
-    <h2>Transaksi Baru</h2>
 
-    <label for="jenis">Jenis Transaksi</label>
-    <select id="jenis">
-      <option value="">Memuat...</option>
-    </select>
+  <div class="card">
 
-    <label for="via">Via</label>
-    <select id="via">
-      <option value="">Memuat...</option>
-    </select>
+    <div class="icon">💰</div>
 
-    <label for="nominal">Nominal</label>
-    <input
-      type="text"
-      id="nominal"
-      inputmode="numeric"
-      placeholder="Masukkan nominal"
-    >
+    <div id="totalAdmin" class="angka">Rp 0</div>
 
-    <button onclick="simpan()">Simpan Transaksi</button>
+    <div class="judul">Pendapatan Admin</div>
+
   </div>
 
-  <div class="history-box">
-    <h2>Riwayat</h2>
-    <div id="riwayat" class="loading">Memuat riwayat...</div>
+<div class="formBox">
+
+  <label>Jenis Transaksi</label>
+
+  <select id="jenis">
+
+    <option value="">Memuat...</option>
+
+  </select>
+
+
+  <label>Via</label>
+
+  <select id="via">
+
+    <option value="">Memuat...</option>
+
+  </select>
+
+
+  <label>Nominal</label>
+
+  <input
+    type="text"
+    id="nominal"
+    inputmode="numeric"
+    autocomplete="off"
+    placeholder="Masukkan Nominal">
+
+
+  <button
+    class="btnSave"
+    onclick="simpan()">
+
+    SIMPAN
+
+  </button>
+
+</div>
+
+
+<div class="history">
+
+  <h3>10 Transaksi Terakhir</h3>
+
+  <div id="historyList" class="historyList">
+
+    Memuat data...
+
   </div>
 
 </div>
 
-<script>
+</div>
 
-const API_URL =
-"https://script.google.com/macros/s/AKfycbwIxrFwhGsGV2OAaX0Vesxz9mAUwBFHQsKUo758x6vDSsSdCT-ySDHVx2HQDgiimI0AYA/exec";
+  <script>
 
-
-document.addEventListener("DOMContentLoaded", function() {
-
-  loadMaster();
-  loadDashboard();
-  loadRiwayat();
-
-  const nominal = document.getElementById("nominal");
-
-  nominal.addEventListener("input", function() {
-
-    let angka = this.value.replace(/\D/g, "");
-
-    if (angka) {
-      this.value = Number(angka).toLocaleString("id-ID");
-    } else {
-      this.value = "";
-    }
-
-  });
-
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./service-worker.js");
-  }
-
-});
+    var API_URL =
+      "https://script.google.com/macros/s/AKfycbwIxrFwhGsGV2OAaX0Vesxz9mAUwBFHQsKUo758x6vDSsSdCT-ySDHVx2HQDgiimI0AYA/exec";
 
 
-function jsonp(url, callback) {
+    function jsonp(action, data, selesai) {
 
-  const callbackName =
-    "callback_" + Date.now() + Math.floor(Math.random() * 1000);
-
-  window[callbackName] = function(data) {
-
-    delete window[callbackName];
-
-    script.remove();
-
-    callback(data);
-
-  };
-
-  const script = document.createElement("script");
-
-  script.src =
-    url +
-    (url.includes("?") ? "&" : "?") +
-    "callback=" +
-    callbackName;
-
-  document.body.appendChild(script);
-}
+      var namaCallback =
+        "itamPay_" +
+        Date.now() +
+        "_" +
+        Math.floor(Math.random() * 10000);
 
 
-function loadMaster() {
+      var script =
+        document.createElement("script");
 
-  jsonp(API_URL + "?action=master", function(data) {
 
-    const jenis = document.getElementById("jenis");
-    const via = document.getElementById("via");
+      var url =
+        API_URL +
+        "?action=" +
+        encodeURIComponent(action) +
+        "&callback=" +
+        encodeURIComponent(namaCallback);
 
-    jenis.innerHTML = '<option value="">Pilih transaksi</option>';
-    via.innerHTML = '<option value="">Pilih via</option>';
 
-    if (data && data.transaksi) {
+      if (data) {
 
-      data.transaksi.forEach(function(item) {
+        for (var key in data) {
 
-        const option = document.createElement("option");
+          url +=
+            "&" +
+            encodeURIComponent(key) +
+            "=" +
+            encodeURIComponent(data[key]);
 
-        option.value = item;
-        option.textContent = item;
+        }
 
-        jenis.appendChild(option);
+      }
 
-      });
+
+      window[namaCallback] =
+        function(hasil) {
+
+          selesai(null, hasil);
+
+          delete window[namaCallback];
+
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+
+        };
+
+
+      script.onerror =
+        function() {
+
+          selesai(
+            new Error("Gagal menghubungi Apps Script."),
+            null
+          );
+
+          delete window[namaCallback];
+
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+
+        };
+
+
+      script.src = url;
+
+      document.head.appendChild(script);
 
     }
 
-    if (data && data.via) {
 
-      data.via.forEach(function(item) {
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
 
-        const option = document.createElement("option");
+        loadMaster();
 
-        option.value = item;
-        option.textContent = item;
+        loadDashboard();
 
-        via.appendChild(option);
-
-      });
-
-    }
-
-  });
-
-}
+        loadRiwayat();
 
 
-function loadDashboard() {
-
-  jsonp(API_URL + "?action=dashboard", function(data) {
-
-    if (!data) return;
-
-    document.getElementById("jumlahTransaksi").textContent =
-      data.jumlahTransaksi || 0;
-
-    document.getElementById("totalAdmin").textContent =
-      "Rp " + Number(data.totalAdmin || 0).toLocaleString("id-ID");
-
-  });
-
-}
+        var nominal =
+          document.getElementById("nominal");
 
 
-function formatRupiah(angka) {
+        nominal.addEventListener(
+          "input",
+          function() {
 
-  return "Rp " +
-    Number(angka || 0).toLocaleString("id-ID");
-
-}
+            var angka =
+              this.value.replace(/\D/g, "");
 
 
-function simpan() {
+            if (angka === "") {
 
-  const jenis =
-    document.getElementById("jenis").value;
+              this.value = "";
 
-  const via =
-    document.getElementById("via").value;
+              return;
 
-  const nominalText =
-    document.getElementById("nominal").value;
+            }
 
-  const nominal =
-    Number(nominalText.replace(/\D/g, ""));
 
-  if (!jenis) {
-    alert("Pilih jenis transaksi.");
-    return;
-  }
+            this.value =
+              Number(angka).toLocaleString("id-ID");
 
-  if (!via) {
-    alert("Pilih via.");
-    return;
-  }
+          }
+        );
 
-  if (!nominal || nominal <= 0) {
-    alert("Masukkan nominal.");
-    return;
-  }
 
-  const button =
-    document.querySelector(".form-box button");
+        if ("serviceWorker" in navigator) {
 
-  button.disabled = true;
-  button.textContent = "Menyimpan...";
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then(
+              function() {
 
-  const params =
-    "?action=simpan" +
-    "&jenis=" + encodeURIComponent(jenis) +
-    "&via=" + encodeURIComponent(via) +
-    "&nominal=" + encodeURIComponent(nominal);
+                console.log(
+                  "Service Worker aktif"
+                );
 
-  jsonp(API_URL + params, function(data) {
+              }
+            )
+            .catch(
+              function(error) {
 
-    button.disabled = false;
-    button.textContent = "Simpan Transaksi";
+                console.error(
+                  "Service Worker gagal:",
+                  error
+                );
 
-    if (data && data.success) {
+              }
+            );
 
-      alert("Transaksi berhasil disimpan.");
+        }
 
-      resetForm();
+      }
+    );
 
-      loadDashboard();
-      loadRiwayat();
 
-    } else {
+    function loadMaster() {
 
-      alert(
-        data && data.message
-          ? data.message
-          : "Transaksi gagal disimpan."
+      jsonp(
+        "master",
+        null,
+        function(error, data) {
+
+          if (error) {
+
+            console.error("Master:", error);
+
+            document.getElementById("jenis").innerHTML =
+              '<option value="">Gagal memuat</option>';
+
+            document.getElementById("via").innerHTML =
+              '<option value="">Gagal memuat</option>';
+
+            return;
+
+          }
+
+
+          var jenis =
+            document.getElementById("jenis");
+
+
+          var via =
+            document.getElementById("via");
+
+
+          jenis.innerHTML =
+            '<option value="">Pilih Transaksi</option>';
+
+
+          via.innerHTML =
+            '<option value="">Pilih Via</option>';
+
+
+          if (
+            data &&
+            Array.isArray(data.transaksi)
+          ) {
+
+            data.transaksi.forEach(
+              function(item) {
+
+                var option =
+                  document.createElement("option");
+
+                option.value = item;
+
+                option.textContent = item;
+
+                jenis.appendChild(option);
+
+              }
+            );
+
+          }
+
+
+          if (
+            data &&
+            Array.isArray(data.via)
+          ) {
+
+            data.via.forEach(
+              function(item) {
+
+                var option =
+                  document.createElement("option");
+
+                option.value = item;
+
+                option.textContent = item;
+
+                via.appendChild(option);
+
+              }
+            );
+
+          }
+
+        }
       );
 
     }
 
-  });
 
-}
+    function loadDashboard() {
+
+      jsonp(
+        "dashboard",
+        null,
+        function(error, data) {
+
+          if (error) {
+
+            console.error("Dashboard:", error);
+
+            return;
+
+          }
 
 
-function resetForm() {
-
-  document.getElementById("jenis").value = "";
-  document.getElementById("via").value = "";
-  document.getElementById("nominal").value = "";
-
-}
+          document.getElementById(
+            "jumlahTransaksi"
+          ).textContent =
+            data.transaksi || 0;
 
 
-function loadRiwayat() {
+          document.getElementById(
+            "totalAdmin"
+          ).textContent =
+            formatRupiah(data.admin || 0);
 
-  const container =
-    document.getElementById("riwayat");
+        }
+      );
 
-  container.innerHTML =
-    '<div class="loading">Memuat riwayat...</div>';
-
-  jsonp(API_URL + "?action=riwayat", function(data) {
-
-    if (!data || !data.length) {
-
-      container.innerHTML =
-        '<div class="empty">Belum ada riwayat transaksi.</div>';
-
-      return;
     }
 
-    container.innerHTML = "";
 
-    data.forEach(function(item) {
+    function formatRupiah(angka) {
 
-      const div =
-        document.createElement("div");
+      return "Rp " +
+        Number(angka || 0).toLocaleString("id-ID");
 
-      div.className = "history-item";
-
-      div.innerHTML = `
-        <div class="history-main">
-          <div class="history-name">
-            ${item.transaksi || ""}
-          </div>
-
-          <div class="history-amount">
-            ${formatRupiah(item.nominal)}
-          </div>
-        </div>
-
-        <div class="history-detail">
-          ${item.tanggal || ""} • ${item.via || ""}
-        </div>
-
-        <button
-          class="delete-btn"
-          onclick="hapusRiwayat(${item.row})">
-          Hapus
-        </button>
-      `;
-
-      container.appendChild(div);
-
-    });
-
-  });
-
-}
+    }
 
 
-function hapusRiwayat(row) {
+    function simpan() {
 
-  if (!confirm("Hapus transaksi ini?")) {
-    return;
-  }
+      var jenis =
+        document.getElementById("jenis").value;
 
-  jsonp(
-    API_URL +
-    "?action=hapus&row=" +
-    encodeURIComponent(row),
 
-    function(data) {
+      var via =
+        document.getElementById("via").value;
 
-      if (data && data.success) {
 
-        alert("Transaksi berhasil dihapus.");
+      var nominal =
+        document.getElementById("nominal")
+          .value
+          .replace(/\D/g, "");
 
-        loadDashboard();
-        loadRiwayat();
 
-      } else {
+      if (
+        jenis === "" ||
+        via === "" ||
+        nominal === ""
+      ) {
 
-        alert(
-          data && data.message
-            ? data.message
-            : "Transaksi gagal dihapus."
-        );
+        alert("Lengkapi semua data.");
+
+        return;
 
       }
 
+
+      var tombol =
+        document.querySelector(".btnSave");
+
+
+      tombol.disabled = true;
+
+      tombol.textContent =
+        "MENYIMPAN...";
+
+
+      jsonp(
+        "simpan",
+        {
+          jenis: jenis,
+          via: via,
+          nominal: nominal
+        },
+        function(error, hasil) {
+
+          if (error) {
+
+            alert(
+              "Error: " +
+              error.message
+            );
+
+            tombol.disabled = false;
+
+            tombol.textContent =
+              "SIMPAN";
+
+            return;
+
+          }
+
+
+          if (
+            !hasil ||
+            !hasil.success
+          ) {
+
+            alert(
+              "Gagal menyimpan transaksi."
+            );
+
+            tombol.disabled = false;
+
+            tombol.textContent =
+              "SIMPAN";
+
+            return;
+
+          }
+
+
+          alert(
+            "Transaksi berhasil disimpan."
+          );
+
+
+          resetForm();
+
+          loadDashboard();
+
+          loadRiwayat();
+
+
+          tombol.disabled = false;
+
+          tombol.textContent =
+            "SIMPAN";
+
+        }
+      );
+
     }
-  );
 
-}
 
-</script>
+    function resetForm() {
+
+      document.getElementById(
+        "jenis"
+      ).selectedIndex = 0;
+
+
+      document.getElementById(
+        "via"
+      ).selectedIndex = 0;
+
+
+      document.getElementById(
+        "nominal"
+      ).value = "";
+
+    }
+
+
+    function loadRiwayat() {
+
+      jsonp(
+        "riwayat",
+        null,
+        function(error, data) {
+
+          var history =
+            document.getElementById(
+              "historyList"
+            );
+
+
+          if (error) {
+
+            history.innerHTML =
+              "Gagal memuat riwayat.";
+
+            console.error(
+              "Riwayat:",
+              error
+            );
+
+            return;
+
+          }
+
+
+          if (
+            !data ||
+            data.length === 0
+          ) {
+
+            history.innerHTML =
+              "<div style='text-align:center;padding:20px'>" +
+              "Belum ada transaksi" +
+              "</div>";
+
+            return;
+
+          }
+
+
+          var html = "";
+
+
+          data.forEach(
+            function(r) {
+
+              html +=
+                '<div class="itemRiwayat">' +
+
+                  '<div>' +
+
+                    '<b>' +
+                    r.transaksi +
+                    '</b><br>' +
+
+                    '<small>' +
+                    r.via +
+                    '</small>' +
+
+                  '</div>' +
+
+                  '<div style="text-align:right">' +
+
+                    '<b>' +
+                    r.nominal +
+                    '</b><br>' +
+
+                    '<small>' +
+                    r.tanggal +
+                    '</small>' +
+
+                  '</div>' +
+
+                  '<button ' +
+                    'class="btnDelete" ' +
+                    'onclick="hapusRiwayat(' +
+                    r.row +
+                    ')" ' +
+                    'title="Hapus transaksi">' +
+
+                    '🗑' +
+
+                  '</button>' +
+
+                '</div>';
+
+            }
+          );
+
+
+          history.innerHTML =
+            html;
+
+        }
+      );
+
+    }
+
+
+    function hapusRiwayat(row) {
+
+      var yakin =
+        confirm(
+          "Hapus transaksi ini?\n\n" +
+          "Data yang dihapus tidak dapat dikembalikan."
+        );
+
+
+      if (!yakin) {
+        return;
+      }
+
+
+      jsonp(
+        "hapus",
+        {
+          row: row
+        },
+        function(error, hasil) {
+
+          if (error) {
+
+            alert(
+              "Gagal menghapus transaksi: " +
+              error.message
+            );
+
+            return;
+
+          }
+
+
+          if (
+            !hasil ||
+            !hasil.success
+          ) {
+
+            alert(
+              "Gagal menghapus transaksi."
+            );
+
+            return;
+
+          }
+
+
+          loadDashboard();
+
+          loadRiwayat();
+
+        }
+      );
+
+    }
+
+  </script>
 
 </body>
+
 </html>
-```
