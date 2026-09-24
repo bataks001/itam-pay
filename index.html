@@ -39,6 +39,8 @@
       margin: auto;
     }
 
+    /* HEADER */
+
     .header {
       background: #1565C0;
       color: #fff;
@@ -59,6 +61,8 @@
       margin-top: 8px;
       font-size: 21px;
     }
+
+    /* DASHBOARD */
 
     .dashboard {
       display: flex;
@@ -92,6 +96,8 @@
       color: #666;
     }
 
+    /* FORM */
+
     .formBox {
       background: #fff;
       border-radius: 20px;
@@ -124,6 +130,8 @@
       border: 2px solid #1565C0;
     }
 
+    /* BUTTON */
+
     button {
       width: 100%;
       height: 72px;
@@ -148,6 +156,8 @@
     .btnSave:hover {
       background: #1B5E20;
     }
+
+    /* RIWAYAT */
 
     .history {
       margin-top: 22px;
@@ -207,7 +217,9 @@
       background: #B71C1C;
     }
 
-    @media (max-width:480px) {
+    /* MOBILE */
+
+    @media (max-width: 480px) {
 
       body {
         padding: 8px;
@@ -288,22 +300,6 @@
 </div>
 
 
-<div style="margin-bottom:20px;">
-
-  <label style="display:block;margin-bottom:10px;font-size:20px;font-weight:bold;">
-    TANGGAL
-  </label>
-
-  <input
-    type="date"
-    id="tanggal"
-    style="width:100%;height:68px;border:1px solid #d8d8d8;border-radius:16px;padding:0 18px;font-size:23px;background:#fff;"
-    onchange="tanggalBerubah()"
-  >
-
-</div>
-
-
 <div class="dashboard">
 
   <div class="card">
@@ -357,8 +353,7 @@
     id="nominal"
     inputmode="numeric"
     autocomplete="off"
-    placeholder="Masukkan Nominal"
-  >
+    placeholder="Masukkan Nominal">
 
 
   <button
@@ -374,7 +369,7 @@
 
 <div class="history">
 
-  <h3>Transaksi Hari Ini</h3>
+  <h3>10 Transaksi Terakhir</h3>
 
   <div id="historyList" class="historyList">
 
@@ -437,9 +432,7 @@
           delete window[namaCallback];
 
           if (script.parentNode) {
-
             script.parentNode.removeChild(script);
-
           }
 
         };
@@ -456,9 +449,7 @@
           delete window[namaCallback];
 
           if (script.parentNode) {
-
             script.parentNode.removeChild(script);
-
           }
 
         };
@@ -474,15 +465,6 @@
     document.addEventListener(
       "DOMContentLoaded",
       function() {
-
-        var tanggal =
-          document.getElementById("tanggal");
-
-        var hariIni =
-          new Date().toISOString().split("T")[0];
-
-        tanggal.value =
-          hariIni;
 
         loadMaster();
 
@@ -598,11 +580,9 @@
                 var option =
                   document.createElement("option");
 
-                option.value =
-                  item;
+                option.value = item;
 
-                option.textContent =
-                  item;
+                option.textContent = item;
 
                 jenis.appendChild(option);
 
@@ -623,11 +603,9 @@
                 var option =
                   document.createElement("option");
 
-                option.value =
-                  item;
+                option.value = item;
 
-                option.textContent =
-                  item;
+                option.textContent = item;
 
                 via.appendChild(option);
 
@@ -646,18 +624,12 @@
 
       jsonp(
         "dashboard",
-        {
-          tanggal:
-            document.getElementById("tanggal").value
-        },
+        null,
         function(error, data) {
 
           if (error) {
 
-            console.error(
-              "Dashboard:",
-              error
-            );
+            console.error("Dashboard:", error);
 
             return;
 
@@ -673,9 +645,7 @@
           document.getElementById(
             "totalAdmin"
           ).textContent =
-            formatRupiah(
-              data.admin || 0
-            );
+            formatRupiah(data.admin || 0);
 
         }
       );
@@ -683,21 +653,10 @@
     }
 
 
-    function tanggalBerubah() {
-
-      loadDashboard();
-
-      loadRiwayat();
-
-    }
-
-
     function formatRupiah(angka) {
 
       return "Rp " +
-        Number(
-          angka || 0
-        ).toLocaleString("id-ID");
+        Number(angka || 0).toLocaleString("id-ID");
 
     }
 
@@ -746,9 +705,7 @@
         {
           jenis: jenis,
           via: via,
-          nominal: nominal,
-          tanggal:
-            document.getElementById("tanggal").value
+          nominal: nominal
         },
         function(error, hasil) {
 
@@ -834,10 +791,7 @@
 
       jsonp(
         "riwayat",
-        {
-          tanggal:
-            document.getElementById("tanggal").value
-        },
+        null,
         function(error, data) {
 
           var history =
@@ -945,9 +899,7 @@
 
 
       if (!yakin) {
-
         return;
-
       }
 
 
