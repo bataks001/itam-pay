@@ -42,7 +42,7 @@
     /* HEADER */
 
     .header {
-      background: #1565C0;
+      background: linear-gradient(135deg, #0D47C9 0%, #1565C0 52%, #1976D2 100%);
       color: #fff;
       border-radius: 22px;
       padding: 38px 25px;
@@ -52,14 +52,132 @@
     }
 
     .header h1 {
-      font-size: 52px;
       font-weight: bold;
-      letter-spacing: 1px;
+      letter-spacing: .5px;
     }
 
     .header p {
+      margin-top: 3px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .headerContent {
+      display: flex;
+      align-items: center;
+      text-align: left;
+      gap: 14px;
+    }
+
+    .headerLogo {
+      width: 64px;
+      height: 64px;
+      flex: 0 0 64px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .headerText {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .header h1 {
+      font-size: 31px;
+      line-height: 1;
+      letter-spacing: .5px;
+    }
+
+    .settingsButton {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.28);
+      font-size: 24px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .settingsButton:hover {
+      background: rgba(255,255,255,.28);
+    }
+
+    .settingsPanel {
+      display: none;
+      margin-top: -8px;
+      margin-bottom: 20px;
+      background: #fff;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.12);
+    }
+
+    .settingsPanel.active {
+      display: block;
+    }
+
+    .settingsTitle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .settingsTitle h3 {
+      color: #1565C0;
+      font-size: 22px;
+    }
+
+    .settingsClose {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      border-radius: 10px;
+      background: #f1f3f6;
+      color: #555;
+      font-size: 22px;
+      padding: 0;
+    }
+
+    .settingRow {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 14px;
+      margin-top: 10px;
+      background: #fafbfc;
+    }
+
+    .settingRowTitle {
+      font-size: 17px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    .settingRowText {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    .settingList {
       margin-top: 8px;
-      font-size: 21px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .settingChip {
+      display: inline-block;
+      padding: 6px 9px;
+      border-radius: 9px;
+      background: #eaf2ff;
+      color: #1565C0;
+      font-size: 13px;
     }
 
     /* DASHBOARD */
@@ -234,7 +352,29 @@
       }
 
       .header p {
-        font-size: 19px;
+        font-size: 12px;
+      }
+
+      .header {
+        padding: 20px 16px;
+      }
+
+      .headerLogo {
+        width: 58px;
+        height: 58px;
+        flex-basis: 58px;
+        border-radius: 14px;
+      }
+
+      .header h1 {
+        font-size: 28px;
+      }
+
+      .settingsButton {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 22px;
       }
 
       .card {
@@ -293,9 +433,97 @@
 
 <div class="header">
 
-  <h1>ITAM PAY</h1>
+  <div class="headerContent">
 
-  <p>PPOB • Transfer • Pembayaran Digital</p>
+    <img
+      class="headerLogo"
+      src="ITAM_PAY_icon.png"
+      alt="ITAM PAY">
+
+    <div class="headerText">
+
+      <h1>ITAM PAY</h1>
+
+      <p>PPOB • Transfer • Pembayaran Digital</p>
+
+    </div>
+
+    <button
+      class="settingsButton"
+      type="button"
+      onclick="togglePengaturan()"
+      title="Pengaturan">
+
+      ⚙
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<div id="settingsPanel" class="settingsPanel">
+
+  <div class="settingsTitle">
+
+    <h3>Pengaturan</h3>
+
+    <button
+      class="settingsClose"
+      type="button"
+      onclick="togglePengaturan()"
+      title="Tutup">
+
+      ×
+
+    </button>
+
+  </div>
+
+  <div class="settingRow">
+
+    <div class="settingRowTitle">
+      Jenis Transaksi
+    </div>
+
+    <div
+      id="settingTransaksi"
+      class="settingList">
+
+      Memuat...
+
+    </div>
+
+  </div>
+
+  <div class="settingRow">
+
+    <div class="settingRowTitle">
+      Via Pembayaran
+    </div>
+
+    <div
+      id="settingVia"
+      class="settingList">
+
+      Memuat...
+
+    </div>
+
+  </div>
+
+  <div class="settingRow">
+
+    <div class="settingRowTitle">
+      Data Pengaturan
+    </div>
+
+    <div class="settingRowText">
+      Daftar transaksi dan Via mengikuti data aktif pada sheet SETTING.
+    </div>
+
+  </div>
 
 </div>
 
@@ -531,6 +759,105 @@
     );
 
 
+    function togglePengaturan() {
+
+      var panel =
+        document.getElementById("settingsPanel");
+
+      if (!panel) {
+        return;
+      }
+
+      panel.classList.toggle("active");
+
+    }
+
+
+    function tampilkanPengaturan(data) {
+
+      var transaksi =
+        document.getElementById("settingTransaksi");
+
+      var via =
+        document.getElementById("settingVia");
+
+      if (transaksi) {
+
+        transaksi.innerHTML = "";
+
+        if (
+          data &&
+          Array.isArray(data.transaksi) &&
+          data.transaksi.length > 0
+        ) {
+
+          data.transaksi.forEach(
+            function(item) {
+
+              var chip =
+                document.createElement("span");
+
+              chip.className =
+                "settingChip";
+
+              chip.textContent =
+                item;
+
+              transaksi.appendChild(chip);
+
+            }
+          );
+
+        }
+        else {
+
+          transaksi.textContent =
+            "Belum ada data.";
+
+        }
+
+      }
+
+      if (via) {
+
+        via.innerHTML = "";
+
+        if (
+          data &&
+          Array.isArray(data.via) &&
+          data.via.length > 0
+        ) {
+
+          data.via.forEach(
+            function(item) {
+
+              var chip =
+                document.createElement("span");
+
+              chip.className =
+                "settingChip";
+
+              chip.textContent =
+                item;
+
+              via.appendChild(chip);
+
+            }
+          );
+
+        }
+        else {
+
+          via.textContent =
+            "Belum ada data.";
+
+        }
+
+      }
+
+    }
+
+
     function loadMaster() {
 
       jsonp(
@@ -613,6 +940,8 @@
             );
 
           }
+
+          tampilkanPengaturan(data);
 
         }
       );
