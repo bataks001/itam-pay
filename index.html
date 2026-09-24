@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="id">
 
 <head>
 
   <meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+     content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color"
-        content="#1565C0">
+<meta name="theme-color"
+     content="#1565C0">
 
-  <meta name="description"
-        content="ITAM PAY - PPOB • Transfer • Pembayaran Digital">
+<meta name="description"
+     content="ITAM PAY - PPOB • Transfer • Pembayaran Digital">
 
   <link rel="manifest" href="manifest.json">
 
@@ -289,120 +290,97 @@
 
   <div class="container">
 
-    <div class="header">
+```
+<div class="header">
 
-      <h1>ITAM PAY</h1>
+  <h1>ITAM PAY</h1>
 
-      <p>PPOB • Transfer • Pembayaran Digital</p>
+  <p>PPOB • Transfer • Pembayaran Digital</p>
 
-    </div>
-
-
-    <div class="dashboard">
-
-      <div class="card">
-
-        <div class="icon">📋</div>
-
-        <div id="jumlahTransaksi" class="angka">
-          0
-        </div>
-
-        <div class="judul">
-          Transaksi Hari Ini
-        </div>
-
-      </div>
+</div>
 
 
-      <div class="card">
+<div class="dashboard">
 
-        <div class="icon">💰</div>
+  <div class="card">
 
-        <div id="totalAdmin" class="angka">
-          Rp 0
-        </div>
+    <div class="icon">📋</div>
 
-        <div class="judul">
-          Pendapatan Admin
-        </div>
+    <div id="jumlahTransaksi" class="angka">0</div>
 
-      </div>
-
-    </div>
-
-
-    <div class="formBox">
-
-      <label>TANGGAL</label>
-
-      <input
-        type="date"
-        id="tanggal"
-        onchange="tanggalBerubah()">
-
-
-      <label>Jenis Transaksi</label>
-
-      <select id="jenis">
-
-        <option value="">
-          Memuat...
-        </option>
-
-      </select>
-
-
-      <label>Via</label>
-
-      <select id="via">
-
-        <option value="">
-          Memuat...
-        </option>
-
-      </select>
-
-
-      <label>Nominal</label>
-
-      <input
-        type="text"
-        id="nominal"
-        inputmode="numeric"
-        autocomplete="off"
-        placeholder="Masukkan Nominal">
-
-
-      <button
-        class="btnSave"
-        onclick="simpan()">
-
-        SIMPAN
-
-      </button>
-
-    </div>
-
-
-    <div class="history">
-
-      <h3>
-        Transaksi Hari Ini
-      </h3>
-
-      <div
-        id="historyList"
-        class="historyList">
-
-        Memuat data...
-
-      </div>
-
-    </div>
+    <div class="judul">Transaksi Hari Ini</div>
 
   </div>
 
+
+  <div class="card">
+
+    <div class="icon">💰</div>
+
+    <div id="totalAdmin" class="angka">Rp 0</div>
+
+    <div class="judul">Pendapatan Admin</div>
+
+  </div>
+
+</div>
+
+
+<div class="formBox">
+
+  <label>Jenis Transaksi</label>
+
+  <select id="jenis">
+
+    <option value="">Memuat...</option>
+
+  </select>
+
+
+  <label>Via</label>
+
+  <select id="via">
+
+    <option value="">Memuat...</option>
+
+  </select>
+
+
+  <label>Nominal</label>
+
+  <input
+    type="text"
+    id="nominal"
+    inputmode="numeric"
+    autocomplete="off"
+    placeholder="Masukkan Nominal">
+
+
+  <button
+    class="btnSave"
+    onclick="simpan()">
+
+    SIMPAN
+
+  </button>
+
+</div>
+
+
+<div class="history">
+
+  <h3>10 Transaksi Terakhir</h3>
+
+  <div id="historyList" class="historyList">
+
+    Memuat data...
+
+  </div>
+
+</div>
+```
+
+  </div>
 
   <script>
 
@@ -412,154 +390,81 @@
 
     function jsonp(action, data, selesai) {
 
-var namaCallback =
-"itamPay_" +
-Date.now() +
-"_" +
-Math.floor(Math.random() * 10000);
-
-var script =
-document.createElement("script");
-
-var url =
-API_URL +
-"?action=" +
-encodeURIComponent(action) +
-"&callback=" +
-encodeURIComponent(namaCallback);
-
-if (data) {
-
-for (var key in data) {
-
-  if (
-    Object.prototype.hasOwnProperty.call(
-      data,
-      key
-    )
-  ) {
-
-    url +=
-      "&" +
-      encodeURIComponent(key) +
-      "=" +
-      encodeURIComponent(data[key]);
-
-  }
-
-}
-
-}
-
-var selesaiDipanggil =
-false;
-
-function selesaiSekali(error, hasil) {
-
-if (selesaiDipanggil) {
-  return;
-}
-
-selesaiDipanggil = true;
-
-if (window[namaCallback]) {
-  delete window[namaCallback];
-}
-
-if (script.parentNode) {
-  script.parentNode.removeChild(script);
-}
-
-selesai(error, hasil);
-
-}
-
-window[namaCallback] =
-function(hasil) {
-
-  selesaiSekali(
-    null,
-    hasil
-  );
-
-};
-
-script.onerror =
-function() {
-
-  console.error(
-    "Gagal menghubungi Apps Script:",
-    url
-  );
-
-  selesaiSekali(
-    new Error(
-      "Gagal menghubungi Apps Script."
-    ),
-    null
-  );
-
-};
-
-script.src =
-url;
-
-document.head.appendChild(
-script
-);
-
-}
+      var namaCallback =
+        "itamPay_" +
+        Date.now() +
+        "_" +
+        Math.floor(Math.random() * 10000);
 
 
-    /* =====================================================
-       TANGGAL HARI INI
-       ===================================================== */
+      var script =
+        document.createElement("script");
 
-    function tanggalHariIni() {
 
-      var sekarang =
-        new Date();
+      var url =
+        API_URL +
+        "?action=" +
+        encodeURIComponent(action) +
+        "&callback=" +
+        encodeURIComponent(namaCallback);
 
-      var tahun =
-        sekarang.getFullYear();
 
-      var bulan =
-        String(
-          sekarang.getMonth() + 1
-        ).padStart(2, "0");
+      if (data) {
 
-      var hari =
-        String(
-          sekarang.getDate()
-        ).padStart(2, "0");
+        for (var key in data) {
 
-      return (
-        tahun +
-        "-" +
-        bulan +
-        "-" +
-        hari
-      );
+          url +=
+            "&" +
+            encodeURIComponent(key) +
+            "=" +
+            encodeURIComponent(data[key]);
+
+        }
+
+      }
+
+
+      window[namaCallback] =
+        function(hasil) {
+
+          selesai(null, hasil);
+
+          delete window[namaCallback];
+
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+
+        };
+
+
+      script.onerror =
+        function() {
+
+          selesai(
+            new Error("Gagal menghubungi Apps Script."),
+            null
+          );
+
+          delete window[namaCallback];
+
+          if (script.parentNode) {
+            script.parentNode.removeChild(script);
+          }
+
+        };
+
+
+      script.src = url;
+
+      document.head.appendChild(script);
 
     }
 
 
-    /* =====================================================
-       SAAT APLIKASI DIBUKA
-       ===================================================== */
-
     document.addEventListener(
       "DOMContentLoaded",
       function() {
-
-        var tanggal =
-          document.getElementById(
-            "tanggal"
-          );
-
-        tanggal.value =
-          tanggalHariIni();
-
 
         loadMaster();
 
@@ -569,9 +474,7 @@ script
 
 
         var nominal =
-          document.getElementById(
-            "nominal"
-          );
+          document.getElementById("nominal");
 
 
         nominal.addEventListener(
@@ -579,10 +482,7 @@ script
           function() {
 
             var angka =
-              this.value.replace(
-                /\D/g,
-                ""
-              );
+              this.value.replace(/\D/g, "");
 
 
             if (angka === "") {
@@ -595,25 +495,16 @@ script
 
 
             this.value =
-              Number(
-                angka
-              ).toLocaleString(
-                "id-ID"
-              );
+              Number(angka).toLocaleString("id-ID");
 
           }
         );
 
 
-        if (
-          "serviceWorker" in
-          navigator
-        ) {
+        if ("serviceWorker" in navigator) {
 
           navigator.serviceWorker
-            .register(
-              "./service-worker.js"
-            )
+            .register("./service-worker.js")
             .then(
               function() {
 
@@ -640,23 +531,6 @@ script
     );
 
 
-    /* =====================================================
-       TANGGAL BERUBAH
-       ===================================================== */
-
-    function tanggalBerubah() {
-
-      loadDashboard();
-
-      loadRiwayat();
-
-    }
-
-
-    /* =====================================================
-       MASTER DATA
-       ===================================================== */
-
     function loadMaster() {
 
       jsonp(
@@ -666,19 +540,12 @@ script
 
           if (error) {
 
-            console.error(
-              "Master:",
-              error
-            );
+            console.error("Master:", error);
 
-            document.getElementById(
-              "jenis"
-            ).innerHTML =
+            document.getElementById("jenis").innerHTML =
               '<option value="">Gagal memuat</option>';
 
-            document.getElementById(
-              "via"
-            ).innerHTML =
+            document.getElementById("via").innerHTML =
               '<option value="">Gagal memuat</option>';
 
             return;
@@ -687,15 +554,11 @@ script
 
 
           var jenis =
-            document.getElementById(
-              "jenis"
-            );
+            document.getElementById("jenis");
 
 
           var via =
-            document.getElementById(
-              "via"
-            );
+            document.getElementById("via");
 
 
           jenis.innerHTML =
@@ -708,28 +571,20 @@ script
 
           if (
             data &&
-            Array.isArray(
-              data.transaksi
-            )
+            Array.isArray(data.transaksi)
           ) {
 
             data.transaksi.forEach(
               function(item) {
 
                 var option =
-                  document.createElement(
-                    "option"
-                  );
+                  document.createElement("option");
 
-                option.value =
-                  item;
+                option.value = item;
 
-                option.textContent =
-                  item;
+                option.textContent = item;
 
-                jenis.appendChild(
-                  option
-                );
+                jenis.appendChild(option);
 
               }
             );
@@ -739,28 +594,20 @@ script
 
           if (
             data &&
-            Array.isArray(
-              data.via
-            )
+            Array.isArray(data.via)
           ) {
 
             data.via.forEach(
               function(item) {
 
                 var option =
-                  document.createElement(
-                    "option"
-                  );
+                  document.createElement("option");
 
-                option.value =
-                  item;
+                option.value = item;
 
-                option.textContent =
-                  item;
+                option.textContent = item;
 
-                via.appendChild(
-                  option
-                );
+                via.appendChild(option);
 
               }
             );
@@ -773,32 +620,16 @@ script
     }
 
 
-    /* =====================================================
-       DASHBOARD
-       ===================================================== */
-
     function loadDashboard() {
-
-      var tanggal =
-        document.getElementById(
-          "tanggal"
-        ).value;
-
 
       jsonp(
         "dashboard",
-        {
-          tanggal:
-            tanggal
-        },
+        null,
         function(error, data) {
 
           if (error) {
 
-            console.error(
-              "Dashboard:",
-              error
-            );
+            console.error("Dashboard:", error);
 
             return;
 
@@ -814,9 +645,7 @@ script
           document.getElementById(
             "totalAdmin"
           ).textContent =
-            formatRupiah(
-              data.admin || 0
-            );
+            formatRupiah(data.admin || 0);
 
         }
       );
@@ -824,68 +653,28 @@ script
     }
 
 
-    /* =====================================================
-       FORMAT RUPIAH
-       ===================================================== */
-
     function formatRupiah(angka) {
 
       return "Rp " +
-        Number(
-          angka || 0
-        ).toLocaleString(
-          "id-ID"
-        );
+        Number(angka || 0).toLocaleString("id-ID");
 
     }
 
 
-    /* =====================================================
-       SIMPAN
-       ===================================================== */
-
     function simpan() {
 
       var jenis =
-        document.getElementById(
-          "jenis"
-        ).value;
+        document.getElementById("jenis").value;
 
 
       var via =
-        document.getElementById(
-          "via"
-        ).value;
+        document.getElementById("via").value;
 
 
       var nominal =
-        document.getElementById(
-          "nominal"
-        )
-        .value
-        .replace(
-          /\D/g,
-          ""
-        );
-
-
-      var tanggal =
-        document.getElementById(
-          "tanggal"
-        ).value;
-
-
-      if (
-        tanggal === ""
-      ) {
-
-        alert(
-          "Tanggal belum dipilih."
-        );
-
-        return;
-
-      }
+        document.getElementById("nominal")
+          .value
+          .replace(/\D/g, "");
 
 
       if (
@@ -894,9 +683,7 @@ script
         nominal === ""
       ) {
 
-        alert(
-          "Lengkapi semua data."
-        );
+        alert("Lengkapi semua data.");
 
         return;
 
@@ -904,13 +691,10 @@ script
 
 
       var tombol =
-        document.querySelector(
-          ".btnSave"
-        );
+        document.querySelector(".btnSave");
 
 
-      tombol.disabled =
-        true;
+      tombol.disabled = true;
 
       tombol.textContent =
         "MENYIMPAN...";
@@ -919,17 +703,9 @@ script
       jsonp(
         "simpan",
         {
-          jenis:
-            jenis,
-
-          via:
-            via,
-
-          nominal:
-            nominal,
-
-          tanggal:
-            tanggal
+          jenis: jenis,
+          via: via,
+          nominal: nominal
         },
         function(error, hasil) {
 
@@ -940,8 +716,7 @@ script
               error.message
             );
 
-            tombol.disabled =
-              false;
+            tombol.disabled = false;
 
             tombol.textContent =
               "SIMPAN";
@@ -960,8 +735,7 @@ script
               "Gagal menyimpan transaksi."
             );
 
-            tombol.disabled =
-              false;
+            tombol.disabled = false;
 
             tombol.textContent =
               "SIMPAN";
@@ -978,25 +752,12 @@ script
 
           resetForm();
 
-
-          /*
-           * Setelah transaksi berhasil disimpan,
-           * tanggal kembali ke hari ini.
-           */
-
-          document.getElementById(
-            "tanggal"
-          ).value =
-            tanggalHariIni();
-
-
           loadDashboard();
 
           loadRiwayat();
 
 
-          tombol.disabled =
-            false;
+          tombol.disabled = false;
 
           tombol.textContent =
             "SIMPAN";
@@ -1006,10 +767,6 @@ script
 
     }
 
-
-    /* =====================================================
-       RESET FORM
-       ===================================================== */
 
     function resetForm() {
 
@@ -1030,24 +787,11 @@ script
     }
 
 
-    /* =====================================================
-       RIWAYAT BERDASARKAN TANGGAL
-       ===================================================== */
-
     function loadRiwayat() {
-
-      var tanggal =
-        document.getElementById(
-          "tanggal"
-        ).value;
-
 
       jsonp(
         "riwayat",
-        {
-          tanggal:
-            tanggal
-        },
+        null,
         function(error, data) {
 
           var history =
@@ -1145,10 +889,6 @@ script
     }
 
 
-    /* =====================================================
-       HAPUS
-       ===================================================== */
-
     function hapusRiwayat(row) {
 
       var yakin =
@@ -1159,17 +899,14 @@ script
 
 
       if (!yakin) {
-
         return;
-
       }
 
 
       jsonp(
         "hapus",
         {
-          row:
-            row
+          row: row
         },
         function(error, hasil) {
 
@@ -1213,4 +950,3 @@ script
 </body>
 
 </html>
-
