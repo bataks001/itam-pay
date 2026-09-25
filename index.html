@@ -111,79 +111,144 @@
       background: rgba(255,255,255,.28);
     }
 
-    .settingsPanel {
-      display: none;
-      margin-top: -8px;
-      margin-bottom: 20px;
-      background: #fff;
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 4px 12px rgba(0,0,0,.12);
-    }
+    /* PENGATURAN */
 
-    .settingsPanel.active {
-      display: block;
-    }
+.settingsPanel {
+  display: none;
+  margin-top: -8px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+  border: 1px solid #e1e8f5;
+}
 
-    .settingsTitle {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-    }
+.settingsPanel.active {
+  display: block;
+}
 
-    .settingsTitle h3 {
-      color: #1565C0;
-      font-size: 22px;
-    }
+.settingsTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #eaf2ff;
+}
 
-    .settingsClose {
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
-      border-radius: 10px;
-      background: #f1f3f6;
-      color: #555;
-      font-size: 22px;
-      padding: 0;
-    }
+.settingsTitle h3 {
+  color: #1565C0;
+  font-size: 22px;
+}
 
-    .settingRow {
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 14px;
-      margin-top: 10px;
-      background: #fafbfc;
-    }
+.settingsClose {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 10px;
+  background: #eaf2ff;
+  color: #1565C0;
+  font-size: 22px;
+  padding: 0;
+}
 
-    .settingRowTitle {
-      font-size: 17px;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 6px;
-    }
+.settingRow {
+  border: 1px solid #dce6f5;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 12px;
+  background: #f8fbff;
+}
 
-    .settingRowText {
-      font-size: 14px;
-      color: #777;
-      line-height: 1.4;
-    }
+.settingRowTitle {
+  font-size: 17px;
+  font-weight: bold;
+  color: #1565C0;
+  margin-bottom: 10px;
+}
 
-    .settingList {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
+.settingRowText {
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
 
-    .settingChip {
-      display: inline-block;
-      padding: 6px 9px;
-      border-radius: 9px;
-      background: #eaf2ff;
-      color: #1565C0;
-      font-size: 13px;
-    }
+.settingList {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.settingChip {
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 9px;
+  background: #eaf2ff;
+  color: #1565C0;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.settingAction {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.settingInput {
+  flex: 1;
+  width: auto;
+  height: 48px;
+  border-radius: 12px;
+  padding: 0 12px;
+  font-size: 16px;
+  border: 1px solid #d5dfef;
+}
+
+.settingButton {
+  width: auto;
+  min-width: 90px;
+  height: 48px;
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 15px;
+  background: #1565C0;
+}
+
+.settingButton:hover {
+  background: #0D47C9;
+}
+
+.tarifForm {
+  margin-top: 10px;
+}
+
+.tarifForm label {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.tarifForm select,
+.tarifForm input {
+  height: 48px;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.tarifButton {
+  margin-top: 14px;
+  height: 50px;
+  font-size: 17px;
+  background: #073763;
+}
+
+.tarifButton:hover {
+  background: #073763;
+}
 
     /* DASHBOARD */
 
@@ -472,6 +537,146 @@
     </button>
 
   </div>
+
+
+  <!-- JENIS TRANSAKSI -->
+
+  <div class="settingRow">
+
+    <div class="settingRowTitle">
+      Jenis Transaksi
+    </div>
+
+    <div
+      id="settingTransaksi"
+      class="settingList">
+
+      Memuat...
+
+    </div>
+
+    <div class="settingAction">
+
+      <input
+        type="text"
+        id="inputJenisBaru"
+        class="settingInput"
+        placeholder="Nama transaksi">
+
+      <button
+        type="button"
+        class="settingButton"
+        onclick="tambahJenis()">
+
+        + Tambah
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- VIA PEMBAYARAN -->
+
+  <div class="settingRow">
+
+    <div class="settingRowTitle">
+      Via Pembayaran
+    </div>
+
+    <div
+      id="settingVia"
+      class="settingList">
+
+      Memuat...
+
+    </div>
+
+    <div class="settingAction">
+
+      <input
+        type="text"
+        id="inputViaBaru"
+        class="settingInput"
+        placeholder="Nama Via">
+
+      <button
+        type="button"
+        class="settingButton"
+        onclick="tambahViaBaru()">
+
+        + Tambah
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- TARIF ADMIN -->
+
+  <div class="settingRow">
+
+    <div class="settingRowTitle">
+      Tarif Admin
+    </div>
+
+    <div class="tarifForm">
+
+      <label>Jenis Transaksi</label>
+
+      <select id="tarifTransaksi">
+
+        <option value="">
+          Pilih Transaksi
+        </option>
+
+      </select>
+
+
+      <label>Minimal</label>
+
+      <input
+        type="text"
+        id="tarifMinimal"
+        inputmode="numeric"
+        placeholder="Contoh: 100000">
+
+
+      <label>Maksimal</label>
+
+      <input
+        type="text"
+        id="tarifMaksimal"
+        inputmode="numeric"
+        placeholder="Contoh: 300000">
+
+
+      <label>Admin</label>
+
+      <input
+        type="text"
+        id="tarifAdmin"
+        inputmode="numeric"
+        placeholder="Contoh: 3000">
+
+
+      <button
+        type="button"
+        class="tarifButton"
+        onclick="tambahTarif()">
+
+        + TAMBAH TARIF
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 
   <div class="settingRow">
 
@@ -932,6 +1137,7 @@
           }
 
           tampilkanPengaturan(data);
+          isiPilihanTarif(data);
 
         }
       );
@@ -1254,6 +1460,282 @@
       );
 
     }
+    function isiPilihanTarif(data) {
+
+  var select =
+    document.getElementById("tarifTransaksi");
+
+  if (!select) {
+    return;
+  }
+
+  select.innerHTML =
+    '<option value="">Pilih Transaksi</option>';
+
+  if (
+    data &&
+    Array.isArray(data.transaksi)
+  ) {
+
+    data.transaksi.forEach(
+      function(item) {
+
+        var option =
+          document.createElement("option");
+
+        option.value = item;
+
+        option.textContent = item;
+
+        select.appendChild(option);
+
+      }
+    );
+
+  }
+
+}
+
+
+function tambahJenis() {
+
+  var input =
+    document.getElementById("inputJenisBaru");
+
+  var nama =
+    input.value.trim();
+
+  if (!nama) {
+
+    tampilkanPesan(
+      "Nama transaksi belum diisi."
+    );
+
+    return;
+
+  }
+
+  jsonp(
+    "tambahJenis",
+    {
+      nama: nama
+    },
+    function(error, hasil) {
+
+      if (error) {
+
+        tampilkanPesan(
+          "Gagal menambahkan transaksi."
+        );
+
+        return;
+
+      }
+
+      if (
+        !hasil ||
+        !hasil.success
+      ) {
+
+        tampilkanPesan(
+          hasil && hasil.message
+            ? hasil.message
+            : "Gagal menambahkan transaksi."
+        );
+
+        return;
+
+      }
+
+      input.value = "";
+
+      tampilkanPesan(
+        "Jenis transaksi berhasil ditambahkan."
+      );
+
+      loadMaster();
+
+    }
+  );
+
+}
+
+
+function tambahViaBaru() {
+
+  var input =
+    document.getElementById("inputViaBaru");
+
+  var nama =
+    input.value.trim();
+
+  if (!nama) {
+
+    tampilkanPesan(
+      "Nama Via belum diisi."
+    );
+
+    return;
+
+  }
+
+  jsonp(
+    "tambahVia",
+    {
+      nama: nama
+    },
+    function(error, hasil) {
+
+      if (error) {
+
+        tampilkanPesan(
+          "Gagal menambahkan Via."
+        );
+
+        return;
+
+      }
+
+      if (
+        !hasil ||
+        !hasil.success
+      ) {
+
+        tampilkanPesan(
+          hasil && hasil.message
+            ? hasil.message
+            : "Gagal menambahkan Via."
+        );
+
+        return;
+
+      }
+
+      input.value = "";
+
+      tampilkanPesan(
+        "Via berhasil ditambahkan."
+      );
+
+      loadMaster();
+
+    }
+  );
+
+}
+
+
+function tambahTarif() {
+
+  var transaksi =
+    document.getElementById(
+      "tarifTransaksi"
+    ).value;
+
+  var minimal =
+    document.getElementById(
+      "tarifMinimal"
+    ).value.replace(/\D/g, "");
+
+  var maksimal =
+    document.getElementById(
+      "tarifMaksimal"
+    ).value.replace(/\D/g, "");
+
+  var admin =
+    document.getElementById(
+      "tarifAdmin"
+    ).value.replace(/\D/g, "");
+
+
+  if (
+    transaksi === "" ||
+    minimal === "" ||
+    maksimal === "" ||
+    admin === ""
+  ) {
+
+    tampilkanPesan(
+      "Lengkapi data tarif."
+    );
+
+    return;
+
+  }
+
+
+  if (
+    Number(maksimal) <
+    Number(minimal)
+  ) {
+
+    tampilkanPesan(
+      "Maksimal tidak boleh lebih kecil dari minimal."
+    );
+
+    return;
+
+  }
+
+
+  jsonp(
+    "tambahTarif",
+    {
+      transaksi: transaksi,
+      minimal: minimal,
+      maksimal: maksimal,
+      admin: admin,
+      aktif: "Ya"
+    },
+    function(error, hasil) {
+
+      if (error) {
+
+        tampilkanPesan(
+          "Gagal menambahkan tarif."
+        );
+
+        return;
+
+      }
+
+      if (
+        !hasil ||
+        !hasil.success
+      ) {
+
+        tampilkanPesan(
+          hasil && hasil.message
+            ? hasil.message
+            : "Gagal menambahkan tarif."
+        );
+
+        return;
+
+      }
+
+
+      document.getElementById(
+        "tarifMinimal"
+      ).value = "";
+
+      document.getElementById(
+        "tarifMaksimal"
+      ).value = "";
+
+      document.getElementById(
+        "tarifAdmin"
+      ).value = "";
+
+
+      tampilkanPesan(
+        "Tarif admin berhasil ditambahkan."
+      );
+
+    }
+  );
+
+}
 function tampilkanPesan(pesan) {
   const popup = document.createElement("div");
 
