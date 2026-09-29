@@ -417,7 +417,284 @@
     }
 
     /* MOBILE */
+/* ==============================
+   LAPORAN TRANSAKSI
+============================== */
 
+.dateReportBox {
+  background: white;
+  border-radius: 20px;
+  padding: 18px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.10);
+}
+
+.dateReportTitle {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #073763;
+}
+
+.dateReportRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dateReportRow input[type="date"] {
+  flex: 1;
+  height: 52px;
+  border: 2px solid #d5dce8;
+  border-radius: 12px;
+  padding: 0 12px;
+  font-size: 17px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.btnReport {
+  height: 52px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    #0D47C9 17%,
+    #1565C0 62%,
+    #1976D2 100%
+  );
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btnReport:active {
+  transform: scale(0.97);
+}
+
+/* MODAL */
+
+.laporanOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.50);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.laporanOverlay.show {
+  display: flex;
+}
+
+.laporanModal {
+  width: min(540px, 100%);
+  max-height: 92vh;
+  background: #f4f7fb;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.30);
+  display: flex;
+  flex-direction: column;
+}
+
+.laporanHeader {
+  background: linear-gradient(
+    135deg,
+    #0D47C9 17%,
+    #1565C0 62%,
+    #1976D2 100%
+  );
+  color: white;
+  padding: 18px 20px;
+  position: relative;
+}
+
+.laporanHeader h2 {
+  margin: 0;
+  font-size: 23px;
+}
+
+.laporanHeader p {
+  margin: 5px 0 0;
+  font-size: 14px;
+  opacity: 0.95;
+}
+
+.btnTutupLaporan {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.laporanBody {
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.laporanSummary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+  margin-bottom: 15px;
+}
+
+.summaryCard {
+  background: white;
+  border-radius: 14px;
+  padding: 12px 8px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.summaryCard .summaryNumber {
+  color: #0D47C9;
+  font-size: 20px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.summaryCard .summaryLabel {
+  color: #555;
+  font-size: 12px;
+  margin-top: 5px;
+  line-height: 1.2;
+}
+
+.laporanListTitle {
+  font-size: 17px;
+  font-weight: bold;
+  color: #073763;
+  margin: 4px 0 10px;
+}
+
+.laporanList {
+  background: white;
+  border-radius: 15px;
+  max-height: 360px;
+  overflow-y: auto;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+}
+
+.laporanItem {
+  padding: 12px;
+  border-bottom: 1px solid #e5e8ed;
+}
+
+.laporanItem:last-child {
+  border-bottom: none;
+}
+
+.laporanItemTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.laporanItemJenis {
+  font-weight: bold;
+  color: #073763;
+  font-size: 16px;
+}
+
+.laporanItemNominal {
+  font-weight: bold;
+  color: #0D47C9;
+  white-space: nowrap;
+}
+
+.laporanItemBottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 5px;
+  color: #666;
+  font-size: 12px;
+}
+
+.laporanKosong {
+  padding: 30px 15px;
+  text-align: center;
+  color: #777;
+  font-size: 15px;
+}
+
+.laporanActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btnExport {
+  height: 50px;
+  border: none;
+  border-radius: 13px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btnPDF {
+  background: #073763;
+}
+
+.btnExcel {
+  background: #1565C0;
+}
+
+.btnExport:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+
+  .dateReportRow {
+    flex-direction: column;
+  }
+
+  .dateReportRow input[type="date"],
+  .btnReport {
+    width: 100%;
+  }
+
+  .laporanSummary {
+    gap: 6px;
+  }
+
+  .summaryCard {
+    padding: 10px 5px;
+  }
+
+  .summaryCard .summaryNumber {
+    font-size: 17px;
+  }
+
+  .summaryCard .summaryLabel {
+    font-size: 11px;
+  }
+
+  .laporanModal {
+    max-height: 94vh;
+  }
+
+}
     @media (max-width: 480px) {
 
       body {
@@ -711,7 +988,29 @@
   </div>
 
 </div>
+<div class="dateReportBox">
 
+  <div class="dateReportTitle">
+    📅 Laporan Transaksi
+  </div>
+
+  <div class="dateReportRow">
+
+    <input
+      type="date"
+      id="tanggalLaporan"
+    >
+
+    <button
+      class="btnReport"
+      onclick="bukaLaporan()"
+    >
+      📋 TRANSAKSI
+    </button>
+
+  </div>
+
+</div>
 
 <div class="formBox">
 
@@ -852,6 +1151,17 @@
     document.addEventListener(
       "DOMContentLoaded",
       function() {
+        const tanggalInput = document.getElementById("tanggalLaporan");
+
+if (tanggalInput) {
+  const sekarang = new Date();
+
+  const tahun = sekarang.getFullYear();
+  const bulan = String(sekarang.getMonth() + 1).padStart(2, "0");
+  const hari = String(sekarang.getDate()).padStart(2, "0");
+
+  tanggalInput.value = `${tahun}-${bulan}-${hari}`;
+}
 
         loadMaster();
 
@@ -1723,6 +2033,687 @@ function tampilkanPesan(pesan) {
   setTimeout(() => {
     popup.remove();
   }, 1800);
+}
+    <!-- ==============================
+     POPUP LAPORAN TRANSAKSI
+============================== -->
+
+<div
+  id="laporanOverlay"
+  class="laporanOverlay"
+>
+
+  <div class="laporanModal">
+
+    <div class="laporanHeader">
+
+      <h2>📋 Laporan Transaksi</h2>
+
+      <p id="laporanTanggalText">
+        -
+      </p>
+
+      <button
+        class="btnTutupLaporan"
+        onclick="tutupLaporan()"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="laporanBody">
+
+      <div class="laporanSummary">
+
+        <div class="summaryCard">
+
+          <div
+            id="laporanJumlah"
+            class="summaryNumber"
+          >
+            0
+          </div>
+
+          <div class="summaryLabel">
+            Jumlah Transaksi
+          </div>
+
+        </div>
+
+        <div class="summaryCard">
+
+          <div
+            id="laporanNominal"
+            class="summaryNumber"
+          >
+            Rp 0
+          </div>
+
+          <div class="summaryLabel">
+            Total Nominal
+          </div>
+
+        </div>
+
+        <div class="summaryCard">
+
+          <div
+            id="laporanAdmin"
+            class="summaryNumber"
+          >
+            Rp 0
+          </div>
+
+          <div class="summaryLabel">
+            Pendapatan Admin
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="laporanListTitle">
+        Daftar Transaksi
+      </div>
+
+      <div
+        id="laporanList"
+        class="laporanList"
+      >
+      </div>
+
+      <div class="laporanActions">
+
+        <button
+          class="btnExport btnPDF"
+          onclick="cetakLaporanPDF()"
+        >
+          📄 PDF
+        </button>
+
+        <button
+          class="btnExport btnExcel"
+          onclick="downloadLaporanExcel()"
+        >
+          📊 EXCEL
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+    let dataLaporanAktif = null;
+
+
+/* ==============================
+   BUKA LAPORAN
+============================== */
+
+function bukaLaporan() {
+
+  const tanggalInput =
+    document.getElementById("tanggalLaporan");
+
+  const tanggal = tanggalInput.value;
+
+  if (!tanggal) {
+    tampilkanPesan("Silakan pilih tanggal terlebih dahulu.");
+    return;
+  }
+
+  const list =
+    document.getElementById("laporanList");
+
+  list.innerHTML = `
+    <div class="laporanKosong">
+      Memuat laporan...
+    </div>
+  `;
+
+  document
+    .getElementById("laporanOverlay")
+    .classList.add("show");
+
+  jsonp(
+    "laporanTanggal",
+    {
+      tanggal: tanggal
+    },
+    function(hasil) {
+
+      if (!hasil || !hasil.success) {
+
+        list.innerHTML = `
+          <div class="laporanKosong">
+            ${hasil && hasil.message
+              ? hasil.message
+              : "Gagal mengambil laporan."}
+          </div>
+        `;
+
+        return;
+      }
+
+      dataLaporanAktif = hasil;
+
+      tampilkanLaporan(hasil);
+    }
+  );
+}
+
+
+/* ==============================
+   TAMPILKAN LAPORAN
+============================== */
+
+function tampilkanLaporan(hasil) {
+
+  const tanggalText =
+    formatTanggalIndonesia(hasil.tanggal);
+
+  document.getElementById(
+    "laporanTanggalText"
+  ).textContent = tanggalText;
+
+  document.getElementById(
+    "laporanJumlah"
+  ).textContent = hasil.jumlah || 0;
+
+  document.getElementById(
+    "laporanNominal"
+  ).textContent = formatRupiah(
+    hasil.totalNominal || 0
+  );
+
+  document.getElementById(
+    "laporanAdmin"
+  ).textContent = formatRupiah(
+    hasil.totalAdmin || 0
+  );
+
+  const list =
+    document.getElementById("laporanList");
+
+  if (!hasil.transaksi || hasil.transaksi.length === 0) {
+
+    list.innerHTML = `
+      <div class="laporanKosong">
+        Tidak ada transaksi pada tanggal ini.
+      </div>
+    `;
+
+    return;
+  }
+
+  let html = "";
+
+  hasil.transaksi.forEach(function(item) {
+
+    html += `
+      <div class="laporanItem">
+
+        <div class="laporanItemTop">
+
+          <div class="laporanItemJenis">
+            ${escapeHtml(item.transaksi)}
+          </div>
+
+          <div class="laporanItemNominal">
+            ${formatRupiah(item.nominal)}
+          </div>
+
+        </div>
+
+        <div class="laporanItemBottom">
+
+          <span>
+            ${escapeHtml(item.via)}
+          </span>
+
+          <span>
+            Admin: ${formatRupiah(item.admin)}
+          </span>
+
+        </div>
+
+      </div>
+    `;
+  });
+
+  list.innerHTML = html;
+}
+
+
+/* ==============================
+   TUTUP LAPORAN
+============================== */
+
+function tutupLaporan() {
+
+  document
+    .getElementById("laporanOverlay")
+    .classList.remove("show");
+}
+
+
+/* Klik area luar popup untuk menutup */
+
+document.addEventListener("click", function(e) {
+
+  const overlay =
+    document.getElementById("laporanOverlay");
+
+  if (e.target === overlay) {
+    tutupLaporan();
+  }
+
+});
+
+
+/* ==============================
+   FORMAT TANGGAL
+============================== */
+
+function formatTanggalIndonesia(tanggal) {
+
+  const bagian = tanggal.split("-");
+
+  if (bagian.length !== 3) {
+    return tanggal;
+  }
+
+  const tahun = bagian[0];
+  const bulan = bagian[1];
+  const hari = bagian[2];
+
+  const namaBulan = [
+    "",
+    "Januari",
+    "Februari",
+    "Maret",
+    "April",
+    "Mei",
+    "Juni",
+    "Juli",
+    "Agustus",
+    "September",
+    "Oktober",
+    "November",
+    "Desember"
+  ];
+
+  return `${hari} ${namaBulan[Number(bulan)]} ${tahun}`;
+}
+
+
+/* ==============================
+   ESCAPE HTML
+============================== */
+
+function escapeHtml(text) {
+
+  if (text === null || text === undefined) {
+    return "";
+  }
+
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+
+/* ==============================
+   CETAK / PDF
+============================== */
+
+function cetakLaporanPDF() {
+
+  if (!dataLaporanAktif) {
+    tampilkanPesan("Laporan belum tersedia.");
+    return;
+  }
+
+  const hasil = dataLaporanAktif;
+
+  let rows = "";
+
+  hasil.transaksi.forEach(function(item, index) {
+
+    rows += `
+      <tr>
+
+        <td>${index + 1}</td>
+
+        <td>${escapeHtml(item.tanggal)}</td>
+
+        <td>${escapeHtml(item.transaksi)}</td>
+
+        <td>${escapeHtml(item.via)}</td>
+
+        <td style="text-align:right">
+          ${formatRupiah(item.nominal)}
+        </td>
+
+        <td style="text-align:right">
+          ${formatRupiah(item.admin)}
+        </td>
+
+      </tr>
+    `;
+  });
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<title>Laporan Transaksi ITAM PAY</title>
+
+<style>
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  color: #222;
+}
+
+h1 {
+  color: #0D47C9;
+  margin-bottom: 4px;
+}
+
+h3 {
+  margin-top: 0;
+  color: #555;
+}
+
+.summary {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  flex: 1;
+}
+
+.card b {
+  display: block;
+  font-size: 18px;
+  color: #0D47C9;
+  margin-top: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th {
+  background: #1565C0;
+  color: white;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  font-size: 12px;
+}
+
+@media print {
+
+  body {
+    margin: 10mm;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>ITAM PAY</h1>
+
+<h3>Laporan Transaksi — ${formatTanggalIndonesia(hasil.tanggal)}</h3>
+
+<div class="summary">
+
+  <div class="card">
+    Jumlah Transaksi
+    <b>${hasil.jumlah}</b>
+  </div>
+
+  <div class="card">
+    Total Nominal
+    <b>${formatRupiah(hasil.totalNominal)}</b>
+  </div>
+
+  <div class="card">
+    Pendapatan Admin
+    <b>${formatRupiah(hasil.totalAdmin)}</b>
+  </div>
+
+</div>
+
+<table>
+
+<thead>
+<tr>
+  <th>No</th>
+  <th>Tanggal</th>
+  <th>Transaksi</th>
+  <th>Via</th>
+  <th>Nominal</th>
+  <th>Admin</th>
+</tr>
+</thead>
+
+<tbody>
+
+${rows}
+
+</tbody>
+
+</table>
+
+<script>
+window.onload = function() {
+  window.print();
+};
+<\/script>
+
+</body>
+</html>
+  `;
+
+  const jendela =
+    window.open("", "_blank");
+
+  if (!jendela) {
+    tampilkanPesan(
+      "Popup diblokir browser. Izinkan popup untuk mencetak PDF."
+    );
+    return;
+  }
+
+  jendela.document.open();
+  jendela.document.write(html);
+  jendela.document.close();
+}
+
+
+/* ==============================
+   DOWNLOAD EXCEL
+============================== */
+
+function downloadLaporanExcel() {
+
+  if (!dataLaporanAktif) {
+    tampilkanPesan("Laporan belum tersedia.");
+    return;
+  }
+
+  const hasil = dataLaporanAktif;
+
+  let rows = "";
+
+  hasil.transaksi.forEach(function(item, index) {
+
+    rows += `
+      <tr>
+
+        <td>${index + 1}</td>
+
+        <td>${escapeHtml(item.tanggal)}</td>
+
+        <td>${escapeHtml(item.transaksi)}</td>
+
+        <td>${escapeHtml(item.via)}</td>
+
+        <td>${item.nominal}</td>
+
+        <td>${item.admin}</td>
+
+        <td>${item.jumlah}</td>
+
+      </tr>
+    `;
+  });
+
+  const excelHtml = `
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+body {
+  font-family: Arial;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.info {
+  font-size: 14px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background: #1565C0;
+  color: white;
+}
+
+th, td {
+  border: 1px solid #999;
+  padding: 7px;
+}
+
+.number {
+  mso-number-format:"0";
+}
+
+.currency {
+  mso-number-format:"#,##0";
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="title">
+ITAM PAY — LAPORAN TRANSAKSI
+</div>
+
+<p class="info">
+Tanggal: ${formatTanggalIndonesia(hasil.tanggal)}
+</p>
+
+<p class="info">
+Jumlah Transaksi: ${hasil.jumlah}
+<br>
+Total Nominal: ${hasil.totalNominal}
+<br>
+Pendapatan Admin: ${hasil.totalAdmin}
+</p>
+
+<table>
+
+<thead>
+
+<tr>
+  <th>No</th>
+  <th>Tanggal</th>
+  <th>Transaksi</th>
+  <th>Via</th>
+  <th>Nominal</th>
+  <th>Admin</th>
+  <th>Jumlah</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+${rows}
+
+</tbody>
+
+</table>
+
+</body>
+</html>
+  `;
+
+  const blob = new Blob(
+    [excelHtml],
+    {
+      type: "application/vnd.ms-excel;charset=utf-8"
+    }
+  );
+
+  const url =
+    URL.createObjectURL(blob);
+
+  const link =
+    document.createElement("a");
+
+  link.href = url;
+
+  link.download =
+    `ITAM_PAY_Laporan_${hasil.tanggal}.xls`;
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  document.body.removeChild(link);
+
+  URL.revokeObjectURL(url);
 }
   </script>
 
