@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-
 <html lang="id">
 
 <head>
 
   <meta charset="UTF-8">
 
-<meta name="viewport"
-     content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color"
-     content="#1565C0">
+  <meta name="theme-color"
+        content="#1565C0">
 
-<meta name="description"
-     content="ITAM PAY - PPOB • Transfer • Pembayaran Digital">
+  <meta name="description"
+        content="ITAM PAY - PPOB • Transfer • Pembayaran Digital">
 
   <link rel="manifest" href="manifest.json">
 
@@ -29,19 +28,29 @@
     }
 
     body {
-  background: #dfe6f3;
-  padding: 10px;
-  }
+      background: #dfe6f3;
+      padding: 10px;
+    }
 
-.container {
-  width: 100%;
-  max-width: 100%;
-  margin: auto;
-}
-    /* HEADER */
+    .container {
+      width: 100%;
+      max-width: 100%;
+      margin: auto;
+    }
+
+
+    /* ==============================
+       HEADER
+    ============================== */
 
     .header {
-      background: linear-gradient(135deg, #0D47C9 17%, #1565C0 62%, #1976D2 100%);
+      background: linear-gradient(
+        135deg,
+        #0D47C9 17%,
+        #1565C0 62%,
+        #1976D2 100%
+      );
+
       color: #fff;
       border-radius: 22px;
       padding: 32px 20px;
@@ -49,18 +58,6 @@
       box-shadow: 0 6px 18px rgba(0,0,0,.15);
       margin-bottom: 20px;
       position: relative;
-    }
-
-    .header h1 {
-      font-weight: bold;
-      letter-spacing: .5px;
-    }
-
-    .header p {
-      margin-top: 3px;
-      font-size: 13px;
-      white-space: normal;
-      line-height: 1.2;
     }
 
     .headerContent {
@@ -85,182 +82,240 @@
 
     .header h1 {
       font-size: 50px;
+      font-weight: bold;
       line-height: 1;
       letter-spacing: .5px;
     }
 
-    .settingsButton {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.18);
-  border: 1px solid rgba(255,255,255,.28);
-  font-size: 24px;
-  padding: 0;
+    .header p {
+      margin-top: 3px;
+      font-size: 13px;
+      white-space: normal;
+      line-height: 1.2;
+    }
 
-  position: absolute;
-  top: 10px;
-  right: 10px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-    .settingsButton:hover {
+    /* ==============================
+       TOMBOL HEADER
+    ============================== */
+
+    .headerActions {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .headerActionButton {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.28);
+
+      color: #fff;
+      font-size: 20px;
+
+      padding: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+    }
+
+    .headerActionButton:hover {
       background: rgba(255,255,255,.28);
     }
 
-    /* PENGATURAN */
+    .headerActionButton:active {
+      transform: scale(.92);
+    }
 
-.settingsPanel {
-  display: none;
-  position: fixed;
-  top: 70px;
-  right: 12px;
-  width: min(420px, calc(100% - 24px));
-  max-height: calc(100vh - 90px);
-  overflow-y: auto;
-  z-index: 9999;
 
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 18px;
+    /* ==============================
+       PENGATURAN
+    ============================== */
 
-  box-shadow: 0 8px 30px rgba(0,0,0,.25);
-  border: 1px solid #dce6f5;
-}
+    .settingsPanel {
+      display: none;
 
-.settingsPanel.active {
-  display: block;
-}
-.settingsPanel.active {
-  display: block;
-}
+      position: fixed;
+      top: 70px;
+      right: 12px;
 
-.settingsTitle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid #eaf2ff;
-}
+      width: min(420px, calc(100% - 24px));
+      max-height: calc(100vh - 90px);
 
-.settingsTitle h3 {
-  color: #1565C0;
-  font-size: 22px;
-}
+      overflow-y: auto;
 
-.settingsClose {
-  width: 38px;
-  height: 38px;
-  min-width: 38px;
-  border-radius: 10px;
-  background: #eaf2ff;
-  color: #1565C0;
-  font-size: 22px;
-  padding: 0;
-}
+      z-index: 9999;
 
-.settingRow {
-  border: 1px solid #dce6f5;
-  border-radius: 14px;
-  padding: 14px;
-  margin-top: 12px;
-  background: #f8fbff;
-}
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 18px;
 
-.settingRowTitle {
-  font-size: 17px;
-  font-weight: bold;
-  color: #1565C0;
-  margin-bottom: 10px;
-}
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      border: 1px solid #dce6f5;
+    }
 
-.settingRowText {
-  font-size: 14px;
-  color: #777;
-  line-height: 1.4;
-}
+    .settingsPanel.active {
+      display: block;
+    }
 
-.settingList {
-  margin-top: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+    .settingsTitle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-.settingChip {
-  display: inline-block;
-  padding: 7px 10px;
-  border-radius: 9px;
-  background: #eaf2ff;
-  color: #1565C0;
-  font-size: 13px;
-  font-weight: bold;
-}
+      margin-bottom: 14px;
+      padding-bottom: 12px;
 
-.settingAction {
-  display: flex;
-  gap: 8px;
-  margin-top: 12px;
-}
+      border-bottom: 2px solid #eaf2ff;
+    }
 
-.settingInput {
-  flex: 1;
-  width: auto;
-  height: 48px;
-  border-radius: 12px;
-  padding: 0 12px;
-  font-size: 16px;
-  border: 1px solid #d5dfef;
-}
+    .settingsTitle h3 {
+      color: #1565C0;
+      font-size: 22px;
+    }
 
-.settingButton {
-  width: auto;
-  min-width: 90px;
-  height: 48px;
-  border-radius: 12px;
-  padding: 0 14px;
-  font-size: 15px;
-  background: #1565C0;
-}
+    .settingsClose {
+      width: 38px !important;
+      height: 38px !important;
+      min-width: 38px !important;
 
-.settingButton:hover {
-  background: #0D47C9;
-}
+      border-radius: 10px;
 
-.tarifForm {
-  margin-top: 10px;
-}
+      background: #eaf2ff;
+      color: #1565C0;
 
-.tarifForm label {
-  font-size: 14px;
-  margin-top: 10px;
-  margin-bottom: 5px;
-  color: #444;
-}
+      font-size: 22px;
+      padding: 0;
+    }
 
-.tarifForm select,
-.tarifForm input {
-  height: 48px;
-  font-size: 16px;
-  border-radius: 12px;
-}
+    .settingRow {
+      border: 1px solid #dce6f5;
+      border-radius: 14px;
 
-.tarifButton {
-  margin-top: 14px;
-  height: 50px;
-  font-size: 17px;
-  background: #073763;
-}
+      padding: 14px;
+      margin-top: 12px;
 
-.tarifButton:hover {
-  background: #073763;
-}
+      background: #f8fbff;
+    }
 
-    /* DASHBOARD */
+    .settingRowTitle {
+      font-size: 17px;
+      font-weight: bold;
+      color: #1565C0;
+      margin-bottom: 10px;
+    }
+
+    .settingRowText {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.4;
+    }
+
+    .settingList {
+      margin-top: 8px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .settingChip {
+      display: inline-block;
+
+      padding: 7px 10px;
+
+      border-radius: 9px;
+
+      background: #eaf2ff;
+      color: #1565C0;
+
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .settingAction {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .settingInput {
+      flex: 1;
+      width: auto;
+
+      height: 48px;
+
+      border-radius: 12px;
+      padding: 0 12px;
+
+      font-size: 16px;
+
+      border: 1px solid #d5dfef;
+    }
+
+    .settingButton {
+      width: auto !important;
+      min-width: 90px !important;
+      height: 48px !important;
+
+      border-radius: 12px;
+
+      padding: 0 14px;
+
+      font-size: 15px;
+
+      background: #1565C0;
+    }
+
+    .settingButton:hover {
+      background: #0D47C9;
+    }
+
+    .tarifForm {
+      margin-top: 10px;
+    }
+
+    .tarifForm label {
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: #444;
+    }
+
+    .tarifForm select,
+    .tarifForm input {
+      height: 48px;
+      font-size: 16px;
+      border-radius: 12px;
+    }
+
+    .tarifButton {
+      margin-top: 14px;
+      height: 50px !important;
+      font-size: 17px;
+      background: #073763;
+    }
+
+    .tarifButton:hover {
+      background: #073763;
+    }
+
+
+    /* ==============================
+       DASHBOARD
+    ============================== */
 
     .dashboard {
       display: flex;
@@ -270,10 +325,20 @@
 
     .card {
       flex: 1;
-      background: linear-gradient(135deg, #0D47C9 17%, #1565C0 62%, #1976D2 100%);
+
+      background: linear-gradient(
+        135deg,
+        #0D47C9 17%,
+        #1565C0 62%,
+        #1976D2 100%
+      );
+
       border-radius: 18px;
+
       padding: 16px;
+
       text-align: center;
+
       box-shadow: 0 4px 12px rgba(0,0,0,.12);
     }
 
@@ -286,7 +351,9 @@
       font-size: 45px;
       font-weight: bold;
       color: #ffffff;
+
       margin-bottom: 8px;
+
       white-space: nowrap;
     }
 
@@ -295,19 +362,27 @@
       color: #ffffff;
     }
 
-    /* FORM */
+
+    /* ==============================
+       FORM
+    ============================== */
 
     .formBox {
       background: #fff;
+
       border-radius: 20px;
+
       padding: 28px;
+
       box-shadow: 0 4px 12px rgba(0,0,0,.12);
     }
 
     label {
       display: block;
+
       margin-top: 20px;
       margin-bottom: 10px;
+
       font-size: 22px;
       font-weight: bold;
     }
@@ -316,11 +391,16 @@
     input {
       width: 100%;
       height: 72px;
+
       border: 1px solid #d8d8d8;
       border-radius: 16px;
+
       padding: 0 18px;
+
       font-size: 25px;
+
       outline: none;
+
       background: #fff;
     }
 
@@ -329,16 +409,23 @@
       border: 2px solid #1565C0;
     }
 
-    /* BUTTON */
+
+    /* ==============================
+       BUTTON UMUM
+    ============================== */
 
     button {
       width: 100%;
       height: 72px;
+
       border: none;
       border-radius: 18px;
+
       font-size: 28px;
       font-weight: bold;
+
       color: white;
+
       cursor: pointer;
     }
 
@@ -356,19 +443,27 @@
       background: #073763;
     }
 
-    /* RIWAYAT */
+
+    /* ==============================
+       RIWAYAT
+    ============================== */
 
     .history {
       margin-top: 22px;
+
       background: #fff;
+
       border-radius: 20px;
+
       padding: 25px;
+
       box-shadow: 0 4px 12px rgba(0,0,0,.12);
     }
 
     .history h3 {
       font-size: 26px;
       color: #000000;
+
       margin-bottom: 18px;
     }
 
@@ -380,9 +475,13 @@
     .itemRiwayat {
       display: flex;
       align-items: center;
+
       gap: 10px;
+
       padding: 14px 0;
+
       border-bottom: 1px solid #eee;
+
       font-size: 20px;
     }
 
@@ -397,18 +496,26 @@
     .btnDelete {
       width: 38px !important;
       height: 38px !important;
-      min-width: 38px;
+
+      min-width: 38px !important;
+
       padding: 0;
       margin: 0;
+
       border: none;
       border-radius: 10px;
+
       background: #073763;
+
       color: #fff;
+
       font-size: 18px;
       line-height: 38px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       cursor: pointer;
     }
 
@@ -416,285 +523,338 @@
       background: #073763;
     }
 
-    /* MOBILE */
-/* ==============================
-   LAPORAN TRANSAKSI
-============================== */
 
-.dateReportBox {
-  background: white;
-  border-radius: 20px;
-  padding: 18px;
-  margin-top: 18px;
-  margin-bottom: 18px;
-  box-shadow: 0 5px 18px rgba(0,0,0,0.10);
-}
+    /* ==============================
+       POPUP LAPORAN
+    ============================== */
 
-.dateReportTitle {
-  font-size: 19px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #073763;
-}
+    .laporanOverlay {
+      position: fixed;
+      inset: 0;
 
-.dateReportRow {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
+      background: rgba(0,0,0,.50);
 
-.dateReportRow input[type="date"] {
-  flex: 1;
-  height: 52px;
-  border: 2px solid #d5dce8;
-  border-radius: 12px;
-  padding: 0 12px;
-  font-size: 17px;
-  font-family: Arial, sans-serif;
-  box-sizing: border-box;
-}
+      z-index: 10000;
 
-.btnReport {
-  height: 52px;
-  padding: 0 18px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(
-    135deg,
-    #0D47C9 17%,
-    #1565C0 62%,
-    #1976D2 100%
-  );
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  white-space: nowrap;
-}
+      display: none;
 
-.btnReport:active {
-  transform: scale(0.97);
-}
+      align-items: center;
+      justify-content: center;
 
-/* MODAL */
+      padding: 10px;
+    }
 
-.laporanOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.50);
-  z-index: 9999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  box-sizing: border-box;
-}
+    .laporanOverlay.show {
+      display: flex;
+    }
 
-.laporanOverlay.show {
-  display: flex;
-}
+    .laporanModal {
+      width: min(540px, 100%);
 
-.laporanModal {
-  width: min(540px, 100%);
-  max-height: 92vh;
-  background: #f4f7fb;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.30);
-  display: flex;
-  flex-direction: column;
-}
+      max-height: 92vh;
 
-.laporanHeader {
-  background: linear-gradient(
-    135deg,
-    #0D47C9 17%,
-    #1565C0 62%,
-    #1976D2 100%
-  );
-  color: white;
-  padding: 18px 20px;
-  position: relative;
-}
+      background: #f4f7fb;
 
-.laporanHeader h2 {
-  margin: 0;
-  font-size: 23px;
-}
+      border-radius: 22px;
 
-.laporanHeader p {
-  margin: 5px 0 0;
-  font-size: 14px;
-  opacity: 0.95;
-}
+      overflow: hidden;
 
-.btnTutupLaporan {
-  position: absolute;
-  right: 12px;
-  top: 10px;
-  width: 38px;
-  height: 38px;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.18);
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-}
+      box-shadow: 0 12px 40px rgba(0,0,0,.30);
 
-.laporanBody {
-  padding: 16px;
-  overflow-y: auto;
-}
+      display: flex;
+      flex-direction: column;
+    }
 
-.laporanSummary {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 9px;
-  margin-bottom: 15px;
-}
+    .laporanHeader {
+      background: linear-gradient(
+        135deg,
+        #0D47C9 17%,
+        #1565C0 62%,
+        #1976D2 100%
+      );
 
-.summaryCard {
-  background: white;
-  border-radius: 14px;
-  padding: 12px 8px;
-  text-align: center;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-}
+      color: white;
 
-.summaryCard .summaryNumber {
-  color: #0D47C9;
-  font-size: 20px;
-  font-weight: bold;
-  white-space: nowrap;
-}
+      padding: 18px 20px;
 
-.summaryCard .summaryLabel {
-  color: #555;
-  font-size: 12px;
-  margin-top: 5px;
-  line-height: 1.2;
-}
+      position: relative;
+    }
 
-.laporanListTitle {
-  font-size: 17px;
-  font-weight: bold;
-  color: #073763;
-  margin: 4px 0 10px;
-}
+    .laporanHeader h2 {
+      margin: 0;
+      font-size: 23px;
+    }
 
-.laporanList {
-  background: white;
-  border-radius: 15px;
-  max-height: 360px;
-  overflow-y: auto;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-}
+    .laporanHeader p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      opacity: .95;
+    }
 
-.laporanItem {
-  padding: 12px;
-  border-bottom: 1px solid #e5e8ed;
-}
+    .btnTutupLaporan {
+      position: absolute;
 
-.laporanItem:last-child {
-  border-bottom: none;
-}
+      right: 12px;
+      top: 10px;
 
-.laporanItemTop {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
+      width: 38px !important;
+      height: 38px !important;
 
-.laporanItemJenis {
-  font-weight: bold;
-  color: #073763;
-  font-size: 16px;
-}
+      min-width: 38px !important;
 
-.laporanItemNominal {
-  font-weight: bold;
-  color: #0D47C9;
-  white-space: nowrap;
-}
+      border: none;
 
-.laporanItemBottom {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 5px;
-  color: #666;
-  font-size: 12px;
-}
+      border-radius: 50%;
 
-.laporanKosong {
-  padding: 30px 15px;
-  text-align: center;
-  color: #777;
-  font-size: 15px;
-}
+      background: rgba(255,255,255,.18);
 
-.laporanActions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 15px;
-}
+      color: white;
 
-.btnExport {
-  height: 50px;
-  border: none;
-  border-radius: 13px;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-}
+      font-size: 24px;
 
-.btnPDF {
-  background: #073763;
-}
+      cursor: pointer;
+    }
 
-.btnExcel {
-  background: #1565C0;
-}
+    .laporanBody {
+      padding: 16px;
+      overflow-y: auto;
+    }
 
-.btnExport:active {
-  transform: scale(0.97);
-}
 
-@media (max-width: 480px) {
+    /* TANGGAL DALAM POPUP */
 
-  .dateReportRow {
-    flex-direction: column;
-  }
+    .laporanTanggalBox {
+      background: white;
 
-  .dateReportRow input[type="date"],
-  .btnReport {
-    width: 100%;
-  }
+      border-radius: 15px;
 
-  .laporanSummary {
-    gap: 6px;
-  }
+      padding: 14px;
 
-  .summaryCard {
-    padding: 10px 5px;
-  }
+      margin-bottom: 15px;
 
-  .summaryCard .summaryNumber {
-    font-size: 17px;
-  }
+      box-shadow: 0 3px 10px rgba(0,0,0,.07);
+    }
 
-  .summaryCard .summaryLabel {
-    font-size: 11px;
-  }
+    .laporanTanggalBox label {
+      margin: 0 0 8px 0;
 
-  .laporanModal {
-    max-height: 94vh;
-  }
+      font-size: 15px;
 
-}
+      color: #073763;
+    }
+
+    .laporanTanggalRow {
+      display: flex;
+      gap: 8px;
+    }
+
+    .laporanTanggalInput {
+      flex: 1;
+
+      width: auto;
+
+      height: 50px;
+
+      padding: 0 12px;
+
+      border: 1px solid #d5dfef;
+
+      border-radius: 12px;
+
+      font-size: 16px;
+    }
+
+    .btnTampilkanLaporan {
+      width: auto !important;
+      min-width: 155px !important;
+
+      height: 50px !important;
+
+      padding: 0 15px;
+
+      border-radius: 12px;
+
+      font-size: 15px;
+
+      background: #073763;
+    }
+
+
+    /* RINGKASAN */
+
+    .laporanSummary {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 9px;
+
+      margin-bottom: 15px;
+    }
+
+    .summaryCard {
+      background: white;
+
+      border-radius: 14px;
+
+      padding: 12px 8px;
+
+      text-align: center;
+
+      box-shadow: 0 3px 10px rgba(0,0,0,.07);
+    }
+
+    .summaryCard .summaryNumber {
+      color: #0D47C9;
+
+      font-size: 20px;
+
+      font-weight: bold;
+
+      white-space: nowrap;
+    }
+
+    .summaryCard .summaryLabel {
+      color: #555;
+
+      font-size: 12px;
+
+      margin-top: 5px;
+
+      line-height: 1.2;
+    }
+
+
+    /* DAFTAR */
+
+    .laporanListTitle {
+      font-size: 17px;
+
+      font-weight: bold;
+
+      color: #073763;
+
+      margin: 4px 0 10px;
+    }
+
+    .laporanList {
+      background: white;
+
+      border-radius: 15px;
+
+      max-height: 360px;
+
+      overflow-y: auto;
+
+      box-shadow: 0 3px 10px rgba(0,0,0,.07);
+    }
+
+    .laporanItem {
+      padding: 12px;
+
+      border-bottom: 1px solid #e5e8ed;
+    }
+
+    .laporanItem:last-child {
+      border-bottom: none;
+    }
+
+    .laporanItemTop {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 10px;
+    }
+
+    .laporanItemJenis {
+      font-weight: bold;
+
+      color: #073763;
+
+      font-size: 16px;
+    }
+
+    .laporanItemNominal {
+      font-weight: bold;
+
+      color: #0D47C9;
+
+      white-space: nowrap;
+    }
+
+    .laporanItemBottom {
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-top: 5px;
+
+      color: #666;
+
+      font-size: 12px;
+    }
+
+    .laporanKosong {
+      padding: 30px 15px;
+
+      text-align: center;
+
+      color: #777;
+
+      font-size: 15px;
+    }
+
+
+    /* EXPORT */
+
+    .laporanActions {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: 15px;
+    }
+
+    .btnExport {
+      height: 50px !important;
+
+      min-width: 0 !important;
+
+      border: none;
+
+      border-radius: 13px;
+
+      color: white;
+
+      font-size: 15px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+    }
+
+    .btnPDF {
+      background: #073763;
+    }
+
+    .btnExcel {
+      background: #1565C0;
+    }
+
+    .btnExport:active {
+      transform: scale(.97);
+    }
+
+
+    /* ==============================
+       MOBILE
+    ============================== */
+
     @media (max-width: 480px) {
 
       body {
@@ -702,11 +862,13 @@
       }
 
       .header {
-  width: 96%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 34px 18px;
-}
+        width: 96%;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding: 34px 18px;
+      }
 
       .header h1 {
         font-size: 46px;
@@ -714,8 +876,35 @@
 
       .header p {
         font-size: 11px;
+
         white-space: nowrap;
-        letter-spacing: -0.2px;
+
+        letter-spacing: -.2px;
+      }
+
+      .headerLogo {
+        width: 70px;
+        height: 70px;
+        flex-basis: 70px;
+      }
+
+      .headerContent {
+        gap: 10px;
+      }
+
+      .headerActions {
+        top: 9px;
+        right: 9px;
+
+        gap: 5px;
+      }
+
+      .headerActionButton {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+
+        font-size: 18px;
       }
 
       .card {
@@ -733,8 +922,10 @@
 
       .judul {
         font-size: 16px;
+
         white-space: nowrap;
-        letter-spacing: -0.3px;
+
+        letter-spacing: -.3px;
       }
 
       label {
@@ -764,1317 +955,479 @@
         min-width: 110px;
       }
 
+      .settingsPanel {
+        top: 60px;
+      }
+
+      .laporanModal {
+        max-height: 94vh;
+      }
+
+      .laporanTanggalRow {
+        flex-direction: column;
+      }
+
+      .laporanTanggalInput,
+      .btnTampilkanLaporan {
+        width: 100% !important;
+      }
+
+      .laporanSummary {
+        gap: 6px;
+      }
+
+      .summaryCard {
+        padding: 10px 5px;
+      }
+
+      .summaryCard .summaryNumber {
+        font-size: 17px;
+      }
+
+      .summaryCard .summaryLabel {
+        font-size: 11px;
+      }
+
     }
 
   </style>
 
 </head>
 
+
 <body>
 
-  <div class="container">
+<div class="container">
 
-
-<div class="header">
-
-  <div class="headerContent">
-
-    <img
-      class="headerLogo"
-      src="ITAM_PAY_icon.png"
-      alt="ITAM PAY">
-
-    <div class="headerText">
-
-      <h1>ITAM PAY</h1>
-
-      <p>PPOB • Transfer • Pembayaran Digital</p>
-
-    </div>
-
-    <button
-      class="settingsButton"
-      type="button"
-      onclick="togglePengaturan()"
-      title="Pengaturan">
-
-      ⚙
-
-    </button>
-
-  </div>
-
-</div>
-
-
-<div id="settingsPanel" class="settingsPanel">
-
-  <div class="settingsTitle">
-
-    <h3>Pengaturan</h3>
-
-    <button
-      class="settingsClose"
-      type="button"
-      onclick="togglePengaturan()"
-      title="Tutup">
-
-      ×
-
-    </button>
-
-  </div>
-
-
-  <!-- JENIS TRANSAKSI -->
-
-  <div class="settingRow">
-
-    <div class="settingRowTitle">
-      Jenis Transaksi
-    </div>
-
-    <div
-      id="settingTransaksi"
-      class="settingList">
-
-      Memuat...
-
-    </div>
-
-    <div class="settingAction">
-
-      <input
-        type="text"
-        id="inputJenisBaru"
-        class="settingInput"
-        placeholder="Nama transaksi">
-
-      <button
-        type="button"
-        class="settingButton"
-        onclick="tambahJenis()">
-
-        + Tambah
-
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- VIA PEMBAYARAN -->
-
-  <div class="settingRow">
-
-    <div class="settingRowTitle">
-      Via Pembayaran
-    </div>
-
-    <div
-      id="settingVia"
-      class="settingList">
-
-      Memuat...
-
-    </div>
-
-    <div class="settingAction">
-
-      <input
-        type="text"
-        id="inputViaBaru"
-        class="settingInput"
-        placeholder="Nama Via">
-
-      <button
-        type="button"
-        class="settingButton"
-        onclick="tambahViaBaru()">
-
-        + Tambah
-
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- TARIF ADMIN -->
-
-  <div class="settingRow">
-
-    <div class="settingRowTitle">
-      Tarif Admin
-    </div>
-
-    <div class="tarifForm">
-
-      <label>Jenis Transaksi</label>
-
-      <select id="tarifTransaksi">
-
-        <option value="">
-          Pilih Transaksi
-        </option>
-
-      </select>
-
-
-      <label>Minimal</label>
-
-      <input
-        type="text"
-        id="tarifMinimal"
-        inputmode="numeric"
-        placeholder="Contoh: 100000">
-
-
-      <label>Maksimal</label>
-
-      <input
-        type="text"
-        id="tarifMaksimal"
-        inputmode="numeric"
-        placeholder="Contoh: 300000">
-
-
-      <label>Admin</label>
-
-      <input
-        type="text"
-        id="tarifAdmin"
-        inputmode="numeric"
-        placeholder="Contoh: 3000">
-
-
-      <button
-        type="button"
-        class="tarifButton"
-        onclick="tambahTarif()">
-
-        + TAMBAH TARIF
-
-      </button>
-
-    </div>
-
-  </div>
-
-</div>
-
-<div class="dashboard">
-
-  <div class="card">
-
-    <div class="icon">🛎️</div>
-
-    <div id="jumlahTransaksi" class="angka">0</div>
-
-    <div class="judul">Transaksi Hari Ini</div>
-
-  </div>
-   
- <div class="card">
-
-    <div class="icon">🪙</div>
-
-    <div id="totalAdmin" class="angka">Rp 0</div>
-
-    <div class="judul">Pendapatan Admin</div>
-
-  </div>
-
-</div>
-<div class="dateReportBox">
-
-  <div class="dateReportTitle">
-    📅 Laporan Transaksi
-  </div>
-
-  <div class="dateReportRow">
-
-    <input
-      type="date"
-      id="tanggalLaporan"
-    >
-
-    <button
-      class="btnReport"
-      onclick="bukaLaporan()"
-    >
-      📋 TRANSAKSI
-    </button>
-
-  </div>
-
-</div>
-
-<div class="formBox">
-
-  <label>Jenis Transaksi</label>
-
-  <select id="jenis">
-
-    <option value="">Memuat...</option>
-
-  </select>
-
-
-  <label>Via</label>
-
-  <select id="via">
-
-    <option value="">Memuat...</option>
-
-  </select>
-
-
-  <label>Nominal</label>
-
-  <input
-    type="text"
-    id="nominal"
-    inputmode="numeric"
-    autocomplete="off"
-    placeholder="Masukkan Nominal">
-
-
-  <button
-    class="btnSave"
-    onclick="simpan()">
-
-    SIMPAN
-
-  </button>
-
-</div>
-
-
-<div class="history">
-
-  <h3>Transaksi Hari Ini</h3>
-
-  <div id="historyList" class="historyList">
-
-    Memuat data...
-
-  </div>
-
-</div>
-
-
-  </div>
-
-  <script>
-
-    var API_URL =
-      "https://script.google.com/macros/s/AKfycbwIxrFwhGsGV2OAaX0Vesxz9mAUwBFHQsKUo758x6vDSsSdCT-ySDHVx2HQDgiimI0AYA/exec";
-
-
-    function jsonp(action, data, selesai) {
-
-      var namaCallback =
-        "itamPay_" +
-        Date.now() +
-        "_" +
-        Math.floor(Math.random() * 10000);
-
-
-      var script =
-        document.createElement("script");
-
-
-      var url =
-        API_URL +
-        "?action=" +
-        encodeURIComponent(action) +
-        "&callback=" +
-        encodeURIComponent(namaCallback);
-
-
-      if (data) {
-
-        for (var key in data) {
-
-          url +=
-            "&" +
-            encodeURIComponent(key) +
-            "=" +
-            encodeURIComponent(data[key]);
-
-        }
-
-      }
-
-
-      window[namaCallback] =
-        function(hasil) {
-
-          selesai(null, hasil);
-
-          delete window[namaCallback];
-
-          if (script.parentNode) {
-            script.parentNode.removeChild(script);
-          }
-
-        };
-
-
-      script.onerror =
-        function() {
-
-          selesai(
-            new Error("Gagal menghubungi Apps Script."),
-            null
-          );
-
-          delete window[namaCallback];
-
-          if (script.parentNode) {
-            script.parentNode.removeChild(script);
-          }
-
-        };
-
-
-      script.src = url;
-
-      document.head.appendChild(script);
-
-    }
-
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-        const tanggalInput = document.getElementById("tanggalLaporan");
-
-if (tanggalInput) {
-  const sekarang = new Date();
-
-  const tahun = sekarang.getFullYear();
-  const bulan = String(sekarang.getMonth() + 1).padStart(2, "0");
-  const hari = String(sekarang.getDate()).padStart(2, "0");
-
-  tanggalInput.value = `${tahun}-${bulan}-${hari}`;
-}
-
-        loadMaster();
-
-        loadDashboard();
-
-        loadRiwayat();
-
-
-        var nominal =
-          document.getElementById("nominal");
-
-
-        nominal.addEventListener(
-          "input",
-          function() {
-
-            var angka =
-              this.value.replace(/\D/g, "");
-
-
-            if (angka === "") {
-
-              this.value = "";
-
-              return;
-
-            }
-
-
-            this.value =
-              Number(angka).toLocaleString("id-ID");
-
-          }
-        );
-
-
-        if ("serviceWorker" in navigator) {
-
-          navigator.serviceWorker
-            .register("./service-worker.js")
-            .then(
-              function() {
-
-                console.log(
-                  "Service Worker aktif"
-                );
-
-              }
-            )
-            .catch(
-              function(error) {
-
-                console.error(
-                  "Service Worker gagal:",
-                  error
-                );
-
-              }
-            );
-
-        }
-
-      }
-    );
-
-
-    function togglePengaturan() {
-
-      var panel =
-        document.getElementById("settingsPanel");
-
-      if (!panel) {
-        return;
-      }
-
-      panel.classList.toggle("active");
-
-    }
-
-
-    function tampilkanPengaturan(data) {
-
-      var transaksi =
-        document.getElementById("settingTransaksi");
-
-      var via =
-        document.getElementById("settingVia");
-
-      if (transaksi) {
-
-        transaksi.innerHTML = "";
-
-        if (
-          data &&
-          Array.isArray(data.transaksi) &&
-          data.transaksi.length > 0
-        ) {
-
-          data.transaksi.forEach(
-            function(item) {
-
-              var chip =
-                document.createElement("span");
-
-              chip.className =
-                "settingChip";
-
-              chip.textContent =
-                item;
-
-              transaksi.appendChild(chip);
-
-            }
-          );
-
-        }
-        else {
-
-          transaksi.textContent =
-            "Belum ada data.";
-
-        }
-
-      }
-
-      if (via) {
-
-        via.innerHTML = "";
-
-        if (
-          data &&
-          Array.isArray(data.via) &&
-          data.via.length > 0
-        ) {
-
-          data.via.forEach(
-            function(item) {
-
-              var chip =
-                document.createElement("span");
-
-              chip.className =
-                "settingChip";
-
-              chip.textContent =
-                item;
-
-              via.appendChild(chip);
-
-            }
-          );
-
-        }
-        else {
-
-          via.textContent =
-            "Belum ada data.";
-
-        }
-
-      }
-
-    }
-
-
-    function loadMaster() {
-
-      jsonp(
-        "master",
-        null,
-        function(error, data) {
-
-          if (error) {
-
-            console.error("Master:", error);
-
-            document.getElementById("jenis").innerHTML =
-              '<option value="">Gagal memuat</option>';
-
-            document.getElementById("via").innerHTML =
-              '<option value="">Gagal memuat</option>';
-
-            return;
-
-          }
-
-
-          var jenis =
-            document.getElementById("jenis");
-
-
-          var via =
-            document.getElementById("via");
-
-
-          jenis.innerHTML =
-            '<option value="">Pilih Transaksi</option>';
-
-
-          via.innerHTML =
-            '<option value="">Pilih Via</option>';
-
-
-          if (
-            data &&
-            Array.isArray(data.transaksi)
-          ) {
-
-            data.transaksi.forEach(
-              function(item) {
-
-                var option =
-                  document.createElement("option");
-
-                option.value = item;
-
-                option.textContent = item;
-
-                jenis.appendChild(option);
-
-              }
-            );
-
-          }
-
-
-          if (
-            data &&
-            Array.isArray(data.via)
-          ) {
-
-            data.via.forEach(
-              function(item) {
-
-                var option =
-                  document.createElement("option");
-
-                option.value = item;
-
-                option.textContent = item;
-
-                via.appendChild(option);
-
-              }
-            );
-
-          }
-
-          tampilkanPengaturan(data);
-          isiPilihanTarif(data);
-
-        }
-      );
-
-    }
-
-
-    function loadDashboard() {
-
-      jsonp(
-        "dashboard",
-        null,
-        function(error, data) {
-
-          if (error) {
-
-            console.error("Dashboard:", error);
-
-            return;
-
-          }
-
-
-          document.getElementById(
-            "jumlahTransaksi"
-          ).textContent =
-            data.transaksi || 0;
-
-
-          document.getElementById(
-            "totalAdmin"
-          ).textContent =
-            formatRupiah(data.admin || 0);
-
-        }
-      );
-
-    }
-
-
-    function formatRupiah(angka) {
-
-      return "Rp " +
-        Number(angka || 0).toLocaleString("id-ID");
-
-    }
-
-
-    function simpan() {
-
-      var jenis =
-        document.getElementById("jenis").value;
-
-
-      var via =
-        document.getElementById("via").value;
-
-
-      var nominal =
-        document.getElementById("nominal")
-          .value
-          .replace(/\D/g, "");
-
-
-      if (
-        jenis === "" ||
-        via === "" ||
-        nominal === ""
-      ) {
-
-        alert("Lengkapi semua data.");
-
-        return;
-
-      }
-
-
-      var tombol =
-        document.querySelector(".btnSave");
-
-
-      tombol.disabled = true;
-
-      tombol.textContent =
-        "MENYIMPAN...";
-
-
-      jsonp(
-        "simpan",
-        {
-          jenis: jenis,
-          via: via,
-          nominal: nominal
-        },
-        function(error, hasil) {
-
-          if (error) {
-
-            alert(
-              "Error: " +
-              error.message
-            );
-
-            tombol.disabled = false;
-
-            tombol.textContent =
-              "SIMPAN";
-
-            return;
-
-          }
-
-
-          if (
-            !hasil ||
-            !hasil.success
-          ) {
-
-            tampilkanPesan("Gagal menyimpan transaksi.");
-
-            tombol.disabled = false;
-
-            tombol.textContent =
-              "SIMPAN";
-
-            return;
-
-          }
-
-
-          tampilkanPesan("Transaksi berhasil disimpan.");
-
-
-          resetForm();
-
-          loadDashboard();
-
-          loadRiwayat();
-
-
-          tombol.disabled = false;
-
-          tombol.textContent =
-            "SIMPAN";
-
-        }
-      );
-
-    }
-
-
-    function resetForm() {
-
-      document.getElementById(
-        "jenis"
-      ).selectedIndex = 0;
-
-
-      document.getElementById(
-        "via"
-      ).selectedIndex = 0;
-
-
-      document.getElementById(
-        "nominal"
-      ).value = "";
-
-    }
-
-
-    function loadRiwayat() {
-
-      jsonp(
-        "riwayat",
-        null,
-        function(error, data) {
-
-          var history =
-            document.getElementById(
-              "historyList"
-            );
-
-
-          if (error) {
-
-            history.innerHTML =
-              "Gagal memuat riwayat.";
-
-            console.error(
-              "Riwayat:",
-              error
-            );
-
-            return;
-
-          }
-
-
-          if (
-            !data ||
-            data.length === 0
-          ) {
-
-            history.innerHTML =
-              "<div style='text-align:center;padding:20px'>" +
-              "Belum ada transaksi" +
-              "</div>";
-
-            return;
-
-          }
-
-
-          var html = "";
-
-
-          data.forEach(
-            function(r) {
-
-              html +=
-                '<div class="itemRiwayat">' +
-
-                  '<div>' +
-
-                    '<b>' +
-                    r.transaksi +
-                    '</b><br>' +
-
-                    '<small>' +
-                    r.via +
-                    '</small>' +
-
-                  '</div>' +
-
-                  '<div style="text-align:right">' +
-
-                    '<b>' +
-                    r.nominal +
-                    '</b><br>' +
-
-                    '<small>' +
-                    r.tanggal +
-                    '</small>' +
-
-                  '</div>' +
-
-                  '<button ' +
-                    'class="btnDelete" ' +
-                    'onclick="hapusRiwayat(' +
-                    r.row +
-                    ')" ' +
-                    'title="Hapus transaksi">' +
-
-                    '🗑' +
-
-                  '</button>' +
-
-                '</div>';
-
-            }
-          );
-
-
-          history.innerHTML =
-            html;
-
-        }
-      );
-
-    }
-
-
-    function hapusRiwayat(row) {
-
-      var yakin =
-        confirm(
-          "Hapus transaksi ini?\n\n" +
-          "Data yang dihapus tidak dapat dikembalikan."
-        );
-
-
-      if (!yakin) {
-        return;
-      }
-
-
-      jsonp(
-        "hapus",
-        {
-          row: row
-        },
-        function(error, hasil) {
-
-          if (error) {
-
-            tampilkanPesan("Transaksi berhsil dihapus.");
-
-            return;
-
-          }
-
-
-          if (
-            !hasil ||
-            !hasil.success
-          ) {
-
-            tampilkanPesan("Transaksi berhasil dihapus.");
-
-            return;
-
-          }
-
-
-          loadDashboard();
-
-          loadRiwayat();
-
-        }
-      );
-
-    }
-    function isiPilihanTarif(data) {
-
-  var select =
-    document.getElementById("tarifTransaksi");
-
-  if (!select) {
-    return;
-  }
-
-  select.innerHTML =
-    '<option value="">Pilih Transaksi</option>';
-
-  if (
-    data &&
-    Array.isArray(data.transaksi)
-  ) {
-
-    data.transaksi.forEach(
-      function(item) {
-
-        var option =
-          document.createElement("option");
-
-        option.value = item;
-
-        option.textContent = item;
-
-        select.appendChild(option);
-
-      }
-    );
-
-  }
-
-}
-
-
-function tambahJenis() {
-
-  var input =
-    document.getElementById("inputJenisBaru");
-
-  var nama =
-    input.value.trim();
-
-  if (!nama) {
-
-    tampilkanPesan(
-      "Nama transaksi belum diisi."
-    );
-
-    return;
-
-  }
-
-  jsonp(
-    "tambahJenis",
-    {
-      nama: nama
-    },
-    function(error, hasil) {
-
-      if (error) {
-
-        tampilkanPesan(
-          "Gagal menambahkan transaksi."
-        );
-
-        return;
-
-      }
-
-      if (
-        !hasil ||
-        !hasil.success
-      ) {
-
-        tampilkanPesan(
-          hasil && hasil.message
-            ? hasil.message
-            : "Gagal menambahkan transaksi."
-        );
-
-        return;
-
-      }
-
-      input.value = "";
-
-      tampilkanPesan(
-        "Jenis transaksi berhasil ditambahkan."
-      );
-
-      loadMaster();
-
-    }
-  );
-
-}
-
-
-function tambahViaBaru() {
-
-  var input =
-    document.getElementById("inputViaBaru");
-
-  var nama =
-    input.value.trim();
-
-  if (!nama) {
-
-    tampilkanPesan(
-      "Nama Via belum diisi."
-    );
-
-    return;
-
-  }
-
-  jsonp(
-    "tambahVia",
-    {
-      nama: nama
-    },
-    function(error, hasil) {
-
-      if (error) {
-
-        tampilkanPesan(
-          "Gagal menambahkan Via."
-        );
-
-        return;
-
-      }
-
-      if (
-        !hasil ||
-        !hasil.success
-      ) {
-
-        tampilkanPesan(
-          hasil && hasil.message
-            ? hasil.message
-            : "Gagal menambahkan Via."
-        );
-
-        return;
-
-      }
-
-      input.value = "";
-
-      tampilkanPesan(
-        "Via berhasil ditambahkan."
-      );
-
-      loadMaster();
-
-    }
-  );
-
-}
-
-
-function tambahTarif() {
-
-  var transaksi =
-    document.getElementById(
-      "tarifTransaksi"
-    ).value;
-
-  var minimal =
-    document.getElementById(
-      "tarifMinimal"
-    ).value.replace(/\D/g, "");
-
-  var maksimal =
-    document.getElementById(
-      "tarifMaksimal"
-    ).value.replace(/\D/g, "");
-
-  var admin =
-    document.getElementById(
-      "tarifAdmin"
-    ).value.replace(/\D/g, "");
-
-
-  if (
-    transaksi === "" ||
-    minimal === "" ||
-    maksimal === "" ||
-    admin === ""
-  ) {
-
-    tampilkanPesan(
-      "Lengkapi data tarif."
-    );
-
-    return;
-
-  }
-
-
-  if (
-    Number(maksimal) <
-    Number(minimal)
-  ) {
-
-    tampilkanPesan(
-      "Maksimal tidak boleh lebih kecil dari minimal."
-    );
-
-    return;
-
-  }
-
-
-  jsonp(
-    "tambahTarif",
-    {
-      transaksi: transaksi,
-      minimal: minimal,
-      maksimal: maksimal,
-      admin: admin,
-      aktif: "Ya"
-    },
-    function(error, hasil) {
-
-      if (error) {
-
-        tampilkanPesan(
-          "Gagal menambahkan tarif."
-        );
-
-        return;
-
-      }
-
-      if (
-        !hasil ||
-        !hasil.success
-      ) {
-
-        tampilkanPesan(
-          hasil && hasil.message
-            ? hasil.message
-            : "Gagal menambahkan tarif."
-        );
-
-        return;
-
-      }
-
-
-      document.getElementById(
-        "tarifMinimal"
-      ).value = "";
-
-      document.getElementById(
-        "tarifMaksimal"
-      ).value = "";
-
-      document.getElementById(
-        "tarifAdmin"
-      ).value = "";
-
-
-      tampilkanPesan(
-        "Tarif admin berhasil ditambahkan."
-      );
-
-    }
-  );
-
-}
-function tampilkanPesan(pesan) {
-  const popup = document.createElement("div");
-
-  popup.textContent = pesan;
-
-  popup.style.position = "fixed";
-  popup.style.left = "50%";
-  popup.style.top = "50%";
-  popup.style.transform = "translate(-50%, -50%)";
-  popup.style.background = "#1565C0";
-  popup.style.color = "#fff";
-  popup.style.padding = "14px 24px";
-  popup.style.borderRadius = "12px";
-  popup.style.fontSize = "16px";
-  popup.style.fontWeight = "600";
-  popup.style.zIndex = "99999";
-  popup.style.boxShadow = "0 6px 20px rgba(0,0,0,0.25)";
-
-  document.body.appendChild(popup);
-
-  setTimeout(() => {
-    popup.remove();
-  }, 1800);
-}  
-  </script>
 
   <!-- ==============================
-     POPUP LAPORAN TRANSAKSI
+       HEADER
+  ============================== -->
+
+  <div class="header">
+
+    <div class="headerContent">
+
+      <img
+        class="headerLogo"
+        src="ITAM_PAY_icon.png"
+        alt="ITAM PAY">
+
+      <div class="headerText">
+
+        <h1>ITAM PAY</h1>
+
+        <p>
+          PPOB • Transfer • Pembayaran Digital
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="headerActions">
+
+      <button
+        class="headerActionButton"
+        type="button"
+        onclick="bukaLaporan()"
+        title="Laporan Transaksi">
+
+        📋
+
+      </button>
+
+
+      <button
+        class="headerActionButton"
+        type="button"
+        onclick="togglePengaturan()"
+        title="Pengaturan">
+
+        ⚙
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==============================
+       PANEL PENGATURAN
+  ============================== -->
+
+  <div
+    id="settingsPanel"
+    class="settingsPanel">
+
+
+    <div class="settingsTitle">
+
+      <h3>Pengaturan</h3>
+
+      <button
+        class="settingsClose"
+        type="button"
+        onclick="togglePengaturan()"
+        title="Tutup">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <!-- JENIS TRANSAKSI -->
+
+    <div class="settingRow">
+
+      <div class="settingRowTitle">
+        Jenis Transaksi
+      </div>
+
+      <div
+        id="settingTransaksi"
+        class="settingList">
+
+        Memuat...
+
+      </div>
+
+      <div class="settingAction">
+
+        <input
+          type="text"
+          id="inputJenisBaru"
+          class="settingInput"
+          placeholder="Nama transaksi">
+
+        <button
+          type="button"
+          class="settingButton"
+          onclick="tambahJenis">
+
+          + Tambah
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- VIA PEMBAYARAN -->
+
+    <div class="settingRow">
+
+      <div class="settingRowTitle">
+        Via Pembayaran
+      </div>
+
+      <div
+        id="settingVia"
+        class="settingList">
+
+        Memuat...
+
+      </div>
+
+      <div class="settingAction">
+
+        <input
+          type="text"
+          id="inputViaBaru"
+          class="settingInput"
+          placeholder="Nama Via">
+
+        <button
+          type="button"
+          class="settingButton"
+          onclick="tambahViaBaru()">
+
+          + Tambah
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- TARIF ADMIN -->
+
+    <div class="settingRow">
+
+      <div class="settingRowTitle">
+        Tarif Admin
+      </div>
+
+      <div class="tarifForm">
+
+        <label>Jenis Transaksi</label>
+
+        <select id="tarifTransaksi">
+
+          <option value="">
+            Pilih Transaksi
+          </option>
+
+        </select>
+
+
+        <label>Minimal</label>
+
+        <input
+          type="text"
+          id="tarifMinimal"
+          inputmode="numeric"
+          placeholder="Contoh: 100000">
+
+
+        <label>Maksimal</label>
+
+        <input
+          type="text"
+          id="tarifMaksimal"
+          inputmode="numeric"
+          placeholder="Contoh: 300000">
+
+
+        <label>Admin</label>
+
+        <input
+          type="text"
+          id="tarifAdmin"
+          inputmode="numeric"
+          placeholder="Contoh: 3000">
+
+
+        <button
+          type="button"
+          class="tarifButton"
+          onclick="tambahTarif()">
+
+          + TAMBAH TARIF
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==============================
+       DASHBOARD
+  ============================== -->
+
+  <div class="dashboard">
+
+    <div class="card">
+
+      <div class="icon">
+        🛎️
+      </div>
+
+      <div
+        id="jumlahTransaksi"
+        class="angka">
+
+        0
+
+      </div>
+
+      <div class="judul">
+        Transaksi Hari Ini
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="icon">
+        🪙
+      </div>
+
+      <div
+        id="totalAdmin"
+        class="angka">
+
+        Rp 0
+
+      </div>
+
+      <div class="judul">
+        Pendapatan Admin
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==============================
+       FORM TRANSAKSI
+  ============================== -->
+
+  <div class="formBox">
+
+    <label>
+      Jenis Transaksi
+    </label>
+
+    <select id="jenis">
+
+      <option value="">
+        Memuat...
+      </option>
+
+    </select>
+
+
+    <label>
+      Via
+    </label>
+
+    <select id="via">
+
+      <option value="">
+        Memuat...
+      </option>
+
+    </select>
+
+
+    <label>
+      Nominal
+    </label>
+
+    <input
+      type="text"
+      id="nominal"
+      inputmode="numeric"
+      autocomplete="off"
+      placeholder="Masukkan Nominal">
+
+
+    <button
+      class="btnSave"
+      onclick="simpan()">
+
+      SIMPAN
+
+    </button>
+
+  </div>
+
+
+  <!-- ==============================
+       RIWAYAT
+  ============================== -->
+
+  <div class="history">
+
+    <h3>
+      Transaksi Hari Ini
+    </h3>
+
+    <div
+      id="historyList"
+      class="historyList">
+
+      Memuat data...
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!-- ==============================
+     POPUP LAPORAN
 ============================== -->
 
 <div
   id="laporanOverlay"
-  class="laporanOverlay"
->
+  class="laporanOverlay">
+
 
   <div class="laporanModal">
 
+
     <div class="laporanHeader">
 
-      <h2>📋 Laporan Transaksi</h2>
+      <h2>
+        📋 Laporan Transaksi
+      </h2>
 
       <p id="laporanTanggalText">
-        -
+        Pilih tanggal
       </p>
 
       <button
         class="btnTutupLaporan"
-        onclick="tutupLaporan()"
-      >
+        type="button"
+        onclick="tutupLaporan()">
+
         ×
+
       </button>
 
     </div>
 
+
     <div class="laporanBody">
 
+
+      <!-- PILIH TANGGAL -->
+
+      <div class="laporanTanggalBox">
+
+        <label>
+          Pilih Tanggal
+        </label>
+
+        <div class="laporanTanggalRow">
+
+          <input
+            type="date"
+            id="tanggalLaporan"
+            class="laporanTanggalInput">
+
+          <button
+            type="button"
+            class="btnTampilkanLaporan"
+            onclick="muatLaporan()">
+
+            TAMPILKAN
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- RINGKASAN -->
+
       <div class="laporanSummary">
+
 
         <div class="summaryCard">
 
           <div
             id="laporanJumlah"
-            class="summaryNumber"
-          >
+            class="summaryNumber">
+
             0
+
           </div>
 
           <div class="summaryLabel">
@@ -2083,13 +1436,15 @@ function tampilkanPesan(pesan) {
 
         </div>
 
+
         <div class="summaryCard">
 
           <div
             id="laporanNominal"
-            class="summaryNumber"
-          >
+            class="summaryNumber">
+
             Rp 0
+
           </div>
 
           <div class="summaryLabel">
@@ -2098,13 +1453,15 @@ function tampilkanPesan(pesan) {
 
         </div>
 
+
         <div class="summaryCard">
 
           <div
             id="laporanAdmin"
-            class="summaryNumber"
-          >
+            class="summaryNumber">
+
             Rp 0
+
           </div>
 
           <div class="summaryLabel">
@@ -2113,7 +1470,11 @@ function tampilkanPesan(pesan) {
 
         </div>
 
+
       </div>
+
+
+      <!-- DAFTAR TRANSAKSI -->
 
       <div class="laporanListTitle">
         Daftar Transaksi
@@ -2121,304 +1482,1788 @@ function tampilkanPesan(pesan) {
 
       <div
         id="laporanList"
-        class="laporanList"
-      >
+        class="laporanList">
+
+        <div class="laporanKosong">
+          Pilih tanggal lalu tekan TAMPILKAN.
+        </div>
+
       </div>
+
+
+      <!-- EXPORT -->
 
       <div class="laporanActions">
 
         <button
+          type="button"
           class="btnExport btnPDF"
-          onclick="cetakLaporanPDF()"
-        >
+          onclick="cetakLaporanPDF()">
+
           📄 PDF
+
         </button>
 
+
         <button
+          type="button"
           class="btnExport btnExcel"
-          onclick="downloadLaporanExcel()"
-        >
+          onclick="downloadLaporanExcel()">
+
           📊 EXCEL
+
         </button>
 
       </div>
+
 
     </div>
 
   </div>
 
 </div>
-    let dataLaporanAktif = null;
 
 
-/* ==============================
-   BUKA LAPORAN
-============================== */
+<script>
 
-function bukaLaporan() {
+  /* ==============================
+     API
+  ============================== */
 
-  const tanggalInput =
-    document.getElementById("tanggalLaporan");
+  var API_URL =
+    "https://script.google.com/macros/s/AKfycbwIxrFwhGsGV2OAaX0Vesxz9mAUwBFHQsKUo758x6vDSsSdCT-ySDHVx2HQDgiimI0AYA/exec";
 
-  const tanggal = tanggalInput.value;
 
-  if (!tanggal) {
-    tampilkanPesan("Silakan pilih tanggal terlebih dahulu.");
-    return;
-  }
+  /* ==============================
+     JSONP
+  ============================== */
 
-  const list =
-    document.getElementById("laporanList");
+  function jsonp(action, data, selesai) {
 
-  list.innerHTML = `
-    <div class="laporanKosong">
-      Memuat laporan...
-    </div>
-  `;
+    var namaCallback =
+      "itamPay_" +
+      Date.now() +
+      "_" +
+      Math.floor(Math.random() * 10000);
 
-  document
-    .getElementById("laporanOverlay")
-    .classList.add("show");
 
-  jsonp(
-    "laporanTanggal",
-    {
-      tanggal: tanggal
-    },
-    function(hasil) {
+    var script =
+      document.createElement("script");
 
-      if (!hasil || !hasil.success) {
 
-        list.innerHTML = `
-          <div class="laporanKosong">
-            ${hasil && hasil.message
-              ? hasil.message
-              : "Gagal mengambil laporan."}
-          </div>
-        `;
+    var url =
+      API_URL +
+      "?action=" +
+      encodeURIComponent(action) +
+      "&callback=" +
+      encodeURIComponent(namaCallback);
 
-        return;
+
+    if (data) {
+
+      for (var key in data) {
+
+        url +=
+          "&" +
+          encodeURIComponent(key) +
+          "=" +
+          encodeURIComponent(data[key]);
+
       }
 
-      dataLaporanAktif = hasil;
+    }
 
-      tampilkanLaporan(hasil);
+
+    window[namaCallback] =
+      function(hasil) {
+
+        selesai(null, hasil);
+
+        delete window[namaCallback];
+
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+
+      };
+
+
+    script.onerror =
+      function() {
+
+        selesai(
+          new Error(
+            "Gagal menghubungi Apps Script."
+          ),
+          null
+        );
+
+        delete window[namaCallback];
+
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+
+      };
+
+
+    script.src = url;
+
+    document.head.appendChild(script);
+
+  }
+
+
+  /* ==============================
+     SAAT APLIKASI DIBUKA
+  ============================== */
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+
+      loadMaster();
+
+      loadDashboard();
+
+      loadRiwayat();
+
+
+      var nominal =
+        document.getElementById("nominal");
+
+
+      nominal.addEventListener(
+        "input",
+        function() {
+
+          var angka =
+            this.value.replace(/\D/g, "");
+
+
+          if (angka === "") {
+
+            this.value = "";
+
+            return;
+
+          }
+
+
+          this.value =
+            Number(angka).toLocaleString("id-ID");
+
+        }
+      );
+
+
+      if ("serviceWorker" in navigator) {
+
+        navigator.serviceWorker
+          .register("./service-worker.js")
+          .then(
+            function() {
+
+              console.log(
+                "Service Worker aktif"
+              );
+
+            }
+          )
+          .catch(
+            function(error) {
+
+              console.error(
+                "Service Worker gagal:",
+                error
+              );
+
+            }
+          );
+
+      }
+
     }
   );
-}
 
 
-/* ==============================
-   TAMPILKAN LAPORAN
-============================== */
+  /* ==============================
+     PENGATURAN
+  ============================== */
 
-function tampilkanLaporan(hasil) {
+  function togglePengaturan() {
 
-  const tanggalText =
-    formatTanggalIndonesia(hasil.tanggal);
+    var panel =
+      document.getElementById(
+        "settingsPanel"
+      );
 
-  document.getElementById(
-    "laporanTanggalText"
-  ).textContent = tanggalText;
+    if (!panel) {
+      return;
+    }
 
-  document.getElementById(
-    "laporanJumlah"
-  ).textContent = hasil.jumlah || 0;
+    panel.classList.toggle("active");
 
-  document.getElementById(
-    "laporanNominal"
-  ).textContent = formatRupiah(
-    hasil.totalNominal || 0
+  }
+
+
+  function tampilkanPengaturan(data) {
+
+    var transaksi =
+      document.getElementById(
+        "settingTransaksi"
+      );
+
+    var via =
+      document.getElementById(
+        "settingVia"
+      );
+
+
+    if (transaksi) {
+
+      transaksi.innerHTML = "";
+
+
+      if (
+        data &&
+        Array.isArray(data.transaksi) &&
+        data.transaksi.length > 0
+      ) {
+
+        data.transaksi.forEach(
+          function(item) {
+
+            var chip =
+              document.createElement(
+                "span"
+              );
+
+            chip.className =
+              "settingChip";
+
+            chip.textContent =
+              item;
+
+            transaksi.appendChild(
+              chip
+            );
+
+          }
+        );
+
+      }
+      else {
+
+        transaksi.textContent =
+          "Belum ada data.";
+
+      }
+
+    }
+
+
+    if (via) {
+
+      via.innerHTML = "";
+
+
+      if (
+        data &&
+        Array.isArray(data.via) &&
+        data.via.length > 0
+      ) {
+
+        data.via.forEach(
+          function(item) {
+
+            var chip =
+              document.createElement(
+                "span"
+              );
+
+            chip.className =
+              "settingChip";
+
+            chip.textContent =
+              item;
+
+            via.appendChild(
+              chip
+            );
+
+          }
+        );
+
+      }
+      else {
+
+        via.textContent =
+          "Belum ada data.";
+
+      }
+
+    }
+
+  }
+
+
+  /* ==============================
+     MASTER
+  ============================== */
+
+  function loadMaster() {
+
+    jsonp(
+      "master",
+      null,
+      function(error, data) {
+
+        if (error) {
+
+          console.error(
+            "Master:",
+            error
+          );
+
+
+          document.getElementById(
+            "jenis"
+          ).innerHTML =
+            '<option value="">Gagal memuat</option>';
+
+
+          document.getElementById(
+            "via"
+          ).innerHTML =
+            '<option value="">Gagal memuat</option>';
+
+
+          return;
+
+        }
+
+
+        var jenis =
+          document.getElementById(
+            "jenis"
+          );
+
+
+        var via =
+          document.getElementById(
+            "via"
+          );
+
+
+        jenis.innerHTML =
+          '<option value="">Pilih Transaksi</option>';
+
+
+        via.innerHTML =
+          '<option value="">Pilih Via</option>';
+
+
+        if (
+          data &&
+          Array.isArray(data.transaksi)
+        ) {
+
+          data.transaksi.forEach(
+            function(item) {
+
+              var option =
+                document.createElement(
+                  "option"
+                );
+
+              option.value =
+                item;
+
+              option.textContent =
+                item;
+
+              jenis.appendChild(
+                option
+              );
+
+            }
+          );
+
+        }
+
+
+        if (
+          data &&
+          Array.isArray(data.via)
+        ) {
+
+          data.via.forEach(
+            function(item) {
+
+              var option =
+                document.createElement(
+                  "option"
+                );
+
+              option.value =
+                item;
+
+              option.textContent =
+                item;
+
+              via.appendChild(
+                option
+              );
+
+            }
+          );
+
+        }
+
+
+        tampilkanPengaturan(data);
+
+        isiPilihanTarif(data);
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     DASHBOARD
+  ============================== */
+
+  function loadDashboard() {
+
+    jsonp(
+      "dashboard",
+      null,
+      function(error, data) {
+
+        if (error) {
+
+          console.error(
+            "Dashboard:",
+            error
+          );
+
+          return;
+
+        }
+
+
+        document.getElementById(
+          "jumlahTransaksi"
+        ).textContent =
+          data.transaksi || 0;
+
+
+        document.getElementById(
+          "totalAdmin"
+        ).textContent =
+          formatRupiah(
+            data.admin || 0
+          );
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     FORMAT RUPIAH
+  ============================== */
+
+  function formatRupiah(angka) {
+
+    return "Rp " +
+      Number(
+        angka || 0
+      ).toLocaleString(
+        "id-ID"
+      );
+
+  }
+
+
+  /* ==============================
+     SIMPAN TRANSAKSI
+  ============================== */
+
+  function simpan() {
+
+    var jenis =
+      document.getElementById(
+        "jenis"
+      ).value;
+
+
+    var via =
+      document.getElementById(
+        "via"
+      ).value;
+
+
+    var nominal =
+      document.getElementById(
+        "nominal"
+      )
+      .value
+      .replace(/\D/g, "");
+
+
+    if (
+      jenis === "" ||
+      via === "" ||
+      nominal === ""
+    ) {
+
+      alert(
+        "Lengkapi semua data."
+      );
+
+      return;
+
+    }
+
+
+    var tombol =
+      document.querySelector(
+        ".btnSave"
+      );
+
+
+    tombol.disabled = true;
+
+    tombol.textContent =
+      "MENYIMPAN...";
+
+
+    jsonp(
+      "simpan",
+      {
+        jenis: jenis,
+        via: via,
+        nominal: nominal
+      },
+      function(error, hasil) {
+
+        if (error) {
+
+          alert(
+            "Error: " +
+            error.message
+          );
+
+          tombol.disabled = false;
+
+          tombol.textContent =
+            "SIMPAN";
+
+          return;
+
+        }
+
+
+        if (
+          !hasil ||
+          !hasil.success
+        ) {
+
+          tampilkanPesan(
+            "Gagal menyimpan transaksi."
+          );
+
+          tombol.disabled = false;
+
+          tombol.textContent =
+            "SIMPAN";
+
+          return;
+
+        }
+
+
+        tampilkanPesan(
+          "Transaksi berhasil disimpan."
+        );
+
+
+        resetForm();
+
+        loadDashboard();
+
+        loadRiwayat();
+
+
+        tombol.disabled = false;
+
+        tombol.textContent =
+          "SIMPAN";
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     RESET FORM
+  ============================== */
+
+  function resetForm() {
+
+    document.getElementById(
+      "jenis"
+    ).selectedIndex = 0;
+
+
+    document.getElementById(
+      "via"
+    ).selectedIndex = 0;
+
+
+    document.getElementById(
+      "nominal"
+    ).value = "";
+
+  }
+
+
+  /* ==============================
+     RIWAYAT
+  ============================== */
+
+  function loadRiwayat() {
+
+    jsonp(
+      "riwayat",
+      null,
+      function(error, data) {
+
+        var history =
+          document.getElementById(
+            "historyList"
+          );
+
+
+        if (error) {
+
+          history.innerHTML =
+            "Gagal memuat riwayat.";
+
+          console.error(
+            "Riwayat:",
+            error
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !data ||
+          data.length === 0
+        ) {
+
+          history.innerHTML =
+            "<div style='text-align:center;padding:20px'>" +
+            "Belum ada transaksi" +
+            "</div>";
+
+          return;
+
+        }
+
+
+        var html = "";
+
+
+        data.forEach(
+          function(r) {
+
+            html +=
+              '<div class="itemRiwayat">' +
+
+                '<div>' +
+
+                  '<b>' +
+                  r.transaksi +
+                  '</b><br>' +
+
+                  '<small>' +
+                  r.via +
+                  '</small>' +
+
+                '</div>' +
+
+                '<div style="text-align:right">' +
+
+                  '<b>' +
+                  r.nominal +
+                  '</b><br>' +
+
+                  '<small>' +
+                  r.tanggal +
+                  '</small>' +
+
+                '</div>' +
+
+                '<button ' +
+                  'class="btnDelete" ' +
+                  'onclick="hapusRiwayat(' +
+                  r.row +
+                  ')" ' +
+                  'title="Hapus transaksi">' +
+
+                  '🗑' +
+
+                '</button>' +
+
+              '</div>';
+
+          }
+        );
+
+
+        history.innerHTML =
+          html;
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     HAPUS RIWAYAT
+  ============================== */
+
+  function hapusRiwayat(row) {
+
+    var yakin =
+      confirm(
+        "Hapus transaksi ini?\n\n" +
+        "Data yang dihapus tidak dapat dikembalikan."
+      );
+
+
+    if (!yakin) {
+      return;
+    }
+
+
+    jsonp(
+      "hapus",
+      {
+        row: row
+      },
+      function(error, hasil) {
+
+        if (error) {
+
+          tampilkanPesan(
+            "Gagal menghapus transaksi."
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !hasil ||
+          !hasil.success
+        ) {
+
+          tampilkanPesan(
+            hasil && hasil.message
+              ? hasil.message
+              : "Gagal menghapus transaksi."
+          );
+
+          return;
+
+        }
+
+
+        tampilkanPesan(
+          "Transaksi berhasil dihapus."
+        );
+
+
+        loadDashboard();
+
+        loadRiwayat();
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     PILIHAN TARIF
+  ============================== */
+
+  function isiPilihanTarif(data) {
+
+    var select =
+      document.getElementById(
+        "tarifTransaksi"
+      );
+
+
+    if (!select) {
+      return;
+    }
+
+
+    select.innerHTML =
+      '<option value="">Pilih Transaksi</option>';
+
+
+    if (
+      data &&
+      Array.isArray(data.transaksi)
+    ) {
+
+      data.transaksi.forEach(
+        function(item) {
+
+          var option =
+            document.createElement(
+              "option"
+            );
+
+          option.value =
+            item;
+
+          option.textContent =
+            item;
+
+          select.appendChild(
+            option
+          );
+
+        }
+      );
+
+    }
+
+  }
+
+
+  /* ==============================
+     TAMBAH JENIS
+  ============================== */
+
+  function tambahJenis() {
+
+    var input =
+      document.getElementById(
+        "inputJenisBaru"
+      );
+
+
+    var nama =
+      input.value.trim();
+
+
+    if (!nama) {
+
+      tampilkanPesan(
+        "Nama transaksi belum diisi."
+      );
+
+      return;
+
+    }
+
+
+    jsonp(
+      "tambahJenis",
+      {
+        nama: nama
+      },
+      function(error, hasil) {
+
+        if (error) {
+
+          tampilkanPesan(
+            "Gagal menambahkan transaksi."
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !hasil ||
+          !hasil.success
+        ) {
+
+          tampilkanPesan(
+            hasil && hasil.message
+              ? hasil.message
+              : "Gagal menambahkan transaksi."
+          );
+
+          return;
+
+        }
+
+
+        input.value = "";
+
+
+        tampilkanPesan(
+          "Jenis transaksi berhasil ditambahkan."
+        );
+
+
+        loadMaster();
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     TAMBAH VIA
+  ============================== */
+
+  function tambahViaBaru() {
+
+    var input =
+      document.getElementById(
+        "inputViaBaru"
+      );
+
+
+    var nama =
+      input.value.trim();
+
+
+    if (!nama) {
+
+      tampilkanPesan(
+        "Nama Via belum diisi."
+      );
+
+      return;
+
+    }
+
+
+    jsonp(
+      "tambahVia",
+      {
+        nama: nama
+      },
+      function(error, hasil) {
+
+        if (error) {
+
+          tampilkanPesan(
+            "Gagal menambahkan Via."
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !hasil ||
+          !hasil.success
+        ) {
+
+          tampilkanPesan(
+            hasil && hasil.message
+              ? hasil.message
+              : "Gagal menambahkan Via."
+          );
+
+          return;
+
+        }
+
+
+        input.value = "";
+
+
+        tampilkanPesan(
+          "Via berhasil ditambahkan."
+        );
+
+
+        loadMaster();
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     TAMBAH TARIF
+  ============================== */
+
+  function tambahTarif() {
+
+    var transaksi =
+      document.getElementById(
+        "tarifTransaksi"
+      ).value;
+
+
+    var minimal =
+      document.getElementById(
+        "tarifMinimal"
+      )
+      .value
+      .replace(/\D/g, "");
+
+
+    var maksimal =
+      document.getElementById(
+        "tarifMaksimal"
+      )
+      .value
+      .replace(/\D/g, "");
+
+
+    var admin =
+      document.getElementById(
+        "tarifAdmin"
+      )
+      .value
+      .replace(/\D/g, "");
+
+
+    if (
+      transaksi === "" ||
+      minimal === "" ||
+      maksimal === "" ||
+      admin === ""
+    ) {
+
+      tampilkanPesan(
+        "Lengkapi data tarif."
+      );
+
+      return;
+
+    }
+
+
+    if (
+      Number(maksimal) <
+      Number(minimal)
+    ) {
+
+      tampilkanPesan(
+        "Maksimal tidak boleh lebih kecil dari minimal."
+      );
+
+      return;
+
+    }
+
+
+    jsonp(
+      "tambahTarif",
+      {
+        transaksi: transaksi,
+        minimal: minimal,
+        maksimal: maksimal,
+        admin: admin,
+        aktif: "Ya"
+      },
+      function(error, hasil) {
+
+        if (error) {
+
+          tampilkanPesan(
+            "Gagal menambahkan tarif."
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !hasil ||
+          !hasil.success
+        ) {
+
+          tampilkanPesan(
+            hasil && hasil.message
+              ? hasil.message
+              : "Gagal menambahkan tarif."
+          );
+
+          return;
+
+        }
+
+
+        document.getElementById(
+          "tarifMinimal"
+        ).value = "";
+
+
+        document.getElementById(
+          "tarifMaksimal"
+        ).value = "";
+
+
+        document.getElementById(
+          "tarifAdmin"
+        ).value = "";
+
+
+        tampilkanPesan(
+          "Tarif admin berhasil ditambahkan."
+        );
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     PESAN POPUP
+  ============================== */
+
+  function tampilkanPesan(pesan) {
+
+    var popup =
+      document.createElement(
+        "div"
+      );
+
+
+    popup.textContent =
+      pesan;
+
+
+    popup.style.position =
+      "fixed";
+
+    popup.style.left =
+      "50%";
+
+    popup.style.top =
+      "50%";
+
+    popup.style.transform =
+      "translate(-50%, -50%)";
+
+    popup.style.background =
+      "#1565C0";
+
+    popup.style.color =
+      "#fff";
+
+    popup.style.padding =
+      "14px 24px";
+
+    popup.style.borderRadius =
+      "12px";
+
+    popup.style.fontSize =
+      "16px";
+
+    popup.style.fontWeight =
+      "600";
+
+    popup.style.zIndex =
+      "99999";
+
+    popup.style.boxShadow =
+      "0 6px 20px rgba(0,0,0,0.25)";
+
+
+    document.body.appendChild(
+      popup
+    );
+
+
+    setTimeout(
+      function() {
+
+        popup.remove();
+
+      },
+      1800
+    );
+
+  }
+
+
+  /* ==================================================
+     LAPORAN TRANSAKSI
+  ================================================== */
+
+  var dataLaporanAktif = null;
+
+
+  /* ==============================
+     BUKA POPUP LAPORAN
+  ============================== */
+
+  function bukaLaporan() {
+
+    var overlay =
+      document.getElementById(
+        "laporanOverlay"
+      );
+
+
+    var tanggalInput =
+      document.getElementById(
+        "tanggalLaporan"
+      );
+
+
+    if (!tanggalInput.value) {
+
+      var sekarang =
+        new Date();
+
+
+      var tahun =
+        sekarang.getFullYear();
+
+
+      var bulan =
+        String(
+          sekarang.getMonth() + 1
+        ).padStart(2, "0");
+
+
+      var hari =
+        String(
+          sekarang.getDate()
+        ).padStart(2, "0");
+
+
+      tanggalInput.value =
+        tahun +
+        "-" +
+        bulan +
+        "-" +
+        hari;
+
+    }
+
+
+    overlay.classList.add(
+      "show"
+    );
+
+
+    document.getElementById(
+      "laporanTanggalText"
+    ).textContent =
+      formatTanggalIndonesia(
+        tanggalInput.value
+      );
+
+
+    /*
+      Saat popup pertama dibuka,
+      langsung menampilkan laporan
+      untuk tanggal hari ini.
+    */
+
+    muatLaporan();
+
+  }
+
+
+  /* ==============================
+     MUAT LAPORAN
+  ============================== */
+
+  function muatLaporan() {
+
+    var tanggalInput =
+      document.getElementById(
+        "tanggalLaporan"
+      );
+
+
+    var tanggal =
+      tanggalInput.value;
+
+
+    if (!tanggal) {
+
+      tampilkanPesan(
+        "Silakan pilih tanggal terlebih dahulu."
+      );
+
+      return;
+
+    }
+
+
+    var list =
+      document.getElementById(
+        "laporanList"
+      );
+
+
+    list.innerHTML =
+      '<div class="laporanKosong">' +
+      'Memuat laporan...' +
+      '</div>';
+
+
+    document.getElementById(
+      "laporanTanggalText"
+    ).textContent =
+      formatTanggalIndonesia(
+        tanggal
+      );
+
+
+    jsonp(
+      "laporanTanggal",
+      {
+        tanggal: tanggal
+      },
+      function(error, hasil) {
+
+        if (error) {
+
+          list.innerHTML =
+            '<div class="laporanKosong">' +
+            'Gagal menghubungi server.' +
+            '</div>';
+
+          console.error(
+            "Laporan:",
+            error
+          );
+
+          return;
+
+        }
+
+
+        if (
+          !hasil ||
+          !hasil.success
+        ) {
+
+          list.innerHTML =
+            '<div class="laporanKosong">' +
+            (
+              hasil &&
+              hasil.message
+                ? hasil.message
+                : "Gagal mengambil laporan."
+            ) +
+            '</div>';
+
+          return;
+
+        }
+
+
+        dataLaporanAktif =
+          hasil;
+
+
+        tampilkanLaporan(
+          hasil
+        );
+
+      }
+    );
+
+  }
+
+
+  /* ==============================
+     TAMPILKAN LAPORAN
+  ============================== */
+
+  function tampilkanLaporan(
+    hasil
+  ) {
+
+    document.getElementById(
+      "laporanTanggalText"
+    ).textContent =
+      formatTanggalIndonesia(
+        hasil.tanggal
+      );
+
+
+    document.getElementById(
+      "laporanJumlah"
+    ).textContent =
+      hasil.jumlah || 0;
+
+
+    document.getElementById(
+      "laporanNominal"
+    ).textContent =
+      formatRupiah(
+        hasil.totalNominal || 0
+      );
+
+
+    document.getElementById(
+      "laporanAdmin"
+    ).textContent =
+      formatRupiah(
+        hasil.totalAdmin || 0
+      );
+
+
+    var list =
+      document.getElementById(
+        "laporanList"
+      );
+
+
+    if (
+      !hasil.transaksi ||
+      hasil.transaksi.length === 0
+    ) {
+
+      list.innerHTML =
+        '<div class="laporanKosong">' +
+        'Tidak ada transaksi pada tanggal ini.' +
+        '</div>';
+
+      return;
+
+    }
+
+
+    var html = "";
+
+
+    hasil.transaksi.forEach(
+      function(item) {
+
+        html +=
+
+          '<div class="laporanItem">' +
+
+            '<div class="laporanItemTop">' +
+
+              '<div class="laporanItemJenis">' +
+                escapeHtml(
+                  item.transaksi
+                ) +
+              '</div>' +
+
+              '<div class="laporanItemNominal">' +
+                formatRupiah(
+                  item.nominal
+                ) +
+              '</div>' +
+
+            '</div>' +
+
+            '<div class="laporanItemBottom">' +
+
+              '<span>' +
+                escapeHtml(
+                  item.via
+                ) +
+              '</span>' +
+
+              '<span>' +
+                'Admin: ' +
+                formatRupiah(
+                  item.admin
+                ) +
+              '</span>' +
+
+            '</div>' +
+
+          '</div>';
+
+      }
+    );
+
+
+    list.innerHTML =
+      html;
+
+  }
+
+
+  /* ==============================
+     TUTUP LAPORAN
+  ============================== */
+
+  function tutupLaporan() {
+
+    document.getElementById(
+      "laporanOverlay"
+    ).classList.remove(
+      "show"
+    );
+
+  }
+
+
+  /* Klik area luar popup */
+
+  document.addEventListener(
+    "click",
+    function(e) {
+
+      var overlay =
+        document.getElementById(
+          "laporanOverlay"
+        );
+
+
+      if (
+        e.target === overlay
+      ) {
+
+        tutupLaporan();
+
+      }
+
+    }
   );
 
-  document.getElementById(
-    "laporanAdmin"
-  ).textContent = formatRupiah(
-    hasil.totalAdmin || 0
-  );
 
-  const list =
-    document.getElementById("laporanList");
+  /* ==============================
+     FORMAT TANGGAL
+  ============================== */
 
-  if (!hasil.transaksi || hasil.transaksi.length === 0) {
+  function formatTanggalIndonesia(
+    tanggal
+  ) {
 
-    list.innerHTML = `
-      <div class="laporanKosong">
-        Tidak ada transaksi pada tanggal ini.
-      </div>
-    `;
+    if (!tanggal) {
+      return "-";
+    }
 
-    return;
+
+    var bagian =
+      tanggal.split("-");
+
+
+    if (
+      bagian.length !== 3
+    ) {
+
+      return tanggal;
+
+    }
+
+
+    var tahun =
+      bagian[0];
+
+
+    var bulan =
+      bagian[1];
+
+
+    var hari =
+      bagian[2];
+
+
+    var namaBulan = [
+
+      "",
+
+      "Januari",
+
+      "Februari",
+
+      "Maret",
+
+      "April",
+
+      "Mei",
+
+      "Juni",
+
+      "Juli",
+
+      "Agustus",
+
+      "September",
+
+      "Oktober",
+
+      "November",
+
+      "Desember"
+
+    ];
+
+
+    return (
+      hari +
+      " " +
+      namaBulan[
+        Number(bulan)
+      ] +
+      " " +
+      tahun
+    );
+
   }
 
-  let html = "";
 
-  hasil.transaksi.forEach(function(item) {
+  /* ==============================
+     ESCAPE HTML
+  ============================== */
 
-    html += `
-      <div class="laporanItem">
+  function escapeHtml(text) {
 
-        <div class="laporanItemTop">
+    if (
+      text === null ||
+      text === undefined
+    ) {
 
-          <div class="laporanItemJenis">
-            ${escapeHtml(item.transaksi)}
-          </div>
+      return "";
 
-          <div class="laporanItemNominal">
-            ${formatRupiah(item.nominal)}
-          </div>
-
-        </div>
-
-        <div class="laporanItemBottom">
-
-          <span>
-            ${escapeHtml(item.via)}
-          </span>
-
-          <span>
-            Admin: ${formatRupiah(item.admin)}
-          </span>
-
-        </div>
-
-      </div>
-    `;
-  });
-
-  list.innerHTML = html;
-}
+    }
 
 
-/* ==============================
-   TUTUP LAPORAN
-============================== */
+    return String(text)
 
-function tutupLaporan() {
+      .replace(
+        /&/g,
+        "&amp;"
+      )
 
-  document
-    .getElementById("laporanOverlay")
-    .classList.remove("show");
-}
+      .replace(
+        /</g,
+        "&lt;"
+      )
 
+      .replace(
+        />/g,
+        "&gt;"
+      )
 
-/* Klik area luar popup untuk menutup */
+      .replace(
+        /"/g,
+        "&quot;"
+      )
 
-document.addEventListener("click", function(e) {
+      .replace(
+        /'/g,
+        "&#039;"
+      );
 
-  const overlay =
-    document.getElementById("laporanOverlay");
-
-  if (e.target === overlay) {
-    tutupLaporan();
   }
 
-});
+
+  /* ==============================
+     PDF
+  ============================== */
+
+  function cetakLaporanPDF() {
+
+    if (!dataLaporanAktif) {
+
+      tampilkanPesan(
+        "Laporan belum tersedia."
+      );
+
+      return;
+
+    }
 
 
-/* ==============================
-   FORMAT TANGGAL
-============================== */
-
-function formatTanggalIndonesia(tanggal) {
-
-  const bagian = tanggal.split("-");
-
-  if (bagian.length !== 3) {
-    return tanggal;
-  }
-
-  const tahun = bagian[0];
-  const bulan = bagian[1];
-  const hari = bagian[2];
-
-  const namaBulan = [
-    "",
-    "Januari",
-    "Februari",
-    "Maret",
-    "April",
-    "Mei",
-    "Juni",
-    "Juli",
-    "Agustus",
-    "September",
-    "Oktober",
-    "November",
-    "Desember"
-  ];
-
-  return `${hari} ${namaBulan[Number(bulan)]} ${tahun}`;
-}
+    var hasil =
+      dataLaporanAktif;
 
 
-/* ==============================
-   ESCAPE HTML
-============================== */
-
-function escapeHtml(text) {
-
-  if (text === null || text === undefined) {
-    return "";
-  }
-
-  return String(text)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
+    var rows = "";
 
 
-/* ==============================
-   CETAK / PDF
-============================== */
+    hasil.transaksi.forEach(
+      function(item, index) {
 
-function cetakLaporanPDF() {
+        rows +=
 
-  if (!dataLaporanAktif) {
-    tampilkanPesan("Laporan belum tersedia.");
-    return;
-  }
+          "<tr>" +
 
-  const hasil = dataLaporanAktif;
+            "<td>" +
+              (index + 1) +
+            "</td>" +
 
-  let rows = "";
+            "<td>" +
+              escapeHtml(
+                item.tanggal
+              ) +
+            "</td>" +
 
-  hasil.transaksi.forEach(function(item, index) {
+            "<td>" +
+              escapeHtml(
+                item.transaksi
+              ) +
+            "</td>" +
 
-    rows += `
-      <tr>
+            "<td>" +
+              escapeHtml(
+                item.via
+              ) +
+            "</td>" +
 
-        <td>${index + 1}</td>
+            '<td style="text-align:right">' +
+              formatRupiah(
+                item.nominal
+              ) +
+            "</td>" +
 
-        <td>${escapeHtml(item.tanggal)}</td>
+            '<td style="text-align:right">' +
+              formatRupiah(
+                item.admin
+              ) +
+            "</td>" +
 
-        <td>${escapeHtml(item.transaksi)}</td>
+          "</tr>";
 
-        <td>${escapeHtml(item.via)}</td>
+      }
+    );
 
-        <td style="text-align:right">
-          ${formatRupiah(item.nominal)}
-        </td>
 
-        <td style="text-align:right">
-          ${formatRupiah(item.admin)}
-        </td>
+    var html = `
 
-      </tr>
-    `;
-  });
-
-  const html = `
 <!DOCTYPE html>
+
 <html>
+
 <head>
 
 <meta charset="UTF-8">
 
-<title>Laporan Transaksi ITAM PAY</title>
+<title>
+Laporan Transaksi ITAM PAY
+</title>
 
 <style>
 
@@ -2469,7 +3314,8 @@ th {
   color: white;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 8px;
   font-size: 12px;
@@ -2489,41 +3335,70 @@ th, td {
 
 <body>
 
-<h1>ITAM PAY</h1>
+<h1>
+ITAM PAY
+</h1>
 
-<h3>Laporan Transaksi — ${formatTanggalIndonesia(hasil.tanggal)}</h3>
+<h3>
+Laporan Transaksi —
+${formatTanggalIndonesia(
+  hasil.tanggal
+)}
+</h3>
+
 
 <div class="summary">
 
   <div class="card">
     Jumlah Transaksi
-    <b>${hasil.jumlah}</b>
+    <b>
+      ${hasil.jumlah}
+    </b>
   </div>
 
   <div class="card">
     Total Nominal
-    <b>${formatRupiah(hasil.totalNominal)}</b>
+    <b>
+      ${formatRupiah(
+        hasil.totalNominal
+      )}
+    </b>
   </div>
 
   <div class="card">
     Pendapatan Admin
-    <b>${formatRupiah(hasil.totalAdmin)}</b>
+    <b>
+      ${formatRupiah(
+        hasil.totalAdmin
+      )}
+    </b>
   </div>
 
 </div>
 
+
 <table>
 
 <thead>
+
 <tr>
-  <th>No</th>
-  <th>Tanggal</th>
-  <th>Transaksi</th>
-  <th>Via</th>
-  <th>Nominal</th>
-  <th>Admin</th>
+
+<th>No</th>
+
+<th>Tanggal</th>
+
+<th>Transaksi</th>
+
+<th>Via</th>
+
+<th>Nominal</th>
+
+<th>Admin</th>
+
 </tr>
+
 </thead>
+
 
 <tbody>
 
@@ -2533,72 +3408,129 @@ ${rows}
 
 </table>
 
+
 <script>
-window.onload = function() {
+
+window.onload =
+function() {
+
   window.print();
+
 };
+
 <\/script>
 
 </body>
+
 </html>
-  `;
 
-  const jendela =
-    window.open("", "_blank");
+`;
 
-  if (!jendela) {
-    tampilkanPesan(
-      "Popup diblokir browser. Izinkan popup untuk mencetak PDF."
+
+    var jendela =
+      window.open(
+        "",
+        "_blank"
+      );
+
+
+    if (!jendela) {
+
+      tampilkanPesan(
+        "Popup diblokir browser. Izinkan popup untuk mencetak PDF."
+      );
+
+      return;
+
+    }
+
+
+    jendela.document.open();
+
+    jendela.document.write(
+      html
     );
-    return;
+
+    jendela.document.close();
+
   }
 
-  jendela.document.open();
-  jendela.document.write(html);
-  jendela.document.close();
-}
+
+  /* ==============================
+     EXCEL
+  ============================== */
+
+  function downloadLaporanExcel() {
+
+    if (!dataLaporanAktif) {
+
+      tampilkanPesan(
+        "Laporan belum tersedia."
+      );
+
+      return;
+
+    }
 
 
-/* ==============================
-   DOWNLOAD EXCEL
-============================== */
+    var hasil =
+      dataLaporanAktif;
 
-function downloadLaporanExcel() {
 
-  if (!dataLaporanAktif) {
-    tampilkanPesan("Laporan belum tersedia.");
-    return;
-  }
+    var rows = "";
 
-  const hasil = dataLaporanAktif;
 
-  let rows = "";
+    hasil.transaksi.forEach(
+      function(item, index) {
 
-  hasil.transaksi.forEach(function(item, index) {
+        rows +=
 
-    rows += `
-      <tr>
+          "<tr>" +
 
-        <td>${index + 1}</td>
+            "<td>" +
+              (index + 1) +
+            "</td>" +
 
-        <td>${escapeHtml(item.tanggal)}</td>
+            "<td>" +
+              escapeHtml(
+                item.tanggal
+              ) +
+            "</td>" +
 
-        <td>${escapeHtml(item.transaksi)}</td>
+            "<td>" +
+              escapeHtml(
+                item.transaksi
+              ) +
+            "</td>" +
 
-        <td>${escapeHtml(item.via)}</td>
+            "<td>" +
+              escapeHtml(
+                item.via
+              ) +
+            "</td>" +
 
-        <td>${item.nominal}</td>
+            "<td>" +
+              item.nominal +
+            "</td>" +
 
-        <td>${item.admin}</td>
+            "<td>" +
+              item.admin +
+            "</td>" +
 
-        <td>${item.jumlah}</td>
+            "<td>" +
+              item.jumlah +
+            "</td>" +
 
-      </tr>
-    `;
-  });
+          "</tr>";
 
-  const excelHtml = `
+      }
+    );
+
+
+    var excelHtml = `
+
 <html>
+
 <head>
 
 <meta charset="UTF-8">
@@ -2628,17 +3560,10 @@ th {
   color: white;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #999;
   padding: 7px;
-}
-
-.number {
-  mso-number-format:"0";
-}
-
-.currency {
-  mso-number-format:"#,##0";
 }
 
 </style>
@@ -2647,37 +3572,64 @@ th, td {
 
 <body>
 
+
 <div class="title">
 ITAM PAY — LAPORAN TRANSAKSI
 </div>
 
-<p class="info">
-Tanggal: ${formatTanggalIndonesia(hasil.tanggal)}
-</p>
 
 <p class="info">
-Jumlah Transaksi: ${hasil.jumlah}
-<br>
-Total Nominal: ${hasil.totalNominal}
-<br>
-Pendapatan Admin: ${hasil.totalAdmin}
+
+Tanggal:
+${formatTanggalIndonesia(
+  hasil.tanggal
+)}
+
 </p>
+
+
+<p class="info">
+
+Jumlah Transaksi:
+${hasil.jumlah}
+
+<br>
+
+Total Nominal:
+${hasil.totalNominal}
+
+<br>
+
+Pendapatan Admin:
+${hasil.totalAdmin}
+
+</p>
+
 
 <table>
 
 <thead>
 
 <tr>
-  <th>No</th>
-  <th>Tanggal</th>
-  <th>Transaksi</th>
-  <th>Via</th>
-  <th>Nominal</th>
-  <th>Admin</th>
-  <th>Jumlah</th>
+
+<th>No</th>
+
+<th>Tanggal</th>
+
+<th>Transaksi</th>
+
+<th>Via</th>
+
+<th>Nominal</th>
+
+<th>Admin</th>
+
+<th>Jumlah</th>
+
 </tr>
 
 </thead>
+
 
 <tbody>
 
@@ -2687,37 +3639,67 @@ ${rows}
 
 </table>
 
+
 </body>
+
 </html>
-  `;
 
-  const blob = new Blob(
-    [excelHtml],
-    {
-      type: "application/vnd.ms-excel;charset=utf-8"
-    }
-  );
+`;
 
-  const url =
-    URL.createObjectURL(blob);
 
-  const link =
-    document.createElement("a");
+    var blob =
+      new Blob(
+        [excelHtml],
+        {
+          type:
+            "application/vnd.ms-excel;charset=utf-8"
+        }
+      );
 
-  link.href = url;
 
-  link.download =
-    `ITAM_PAY_Laporan_${hasil.tanggal}.xls`;
+    var url =
+      URL.createObjectURL(
+        blob
+      );
 
-  document.body.appendChild(link);
 
-  link.click();
+    var link =
+      document.createElement(
+        "a"
+      );
 
-  document.body.removeChild(link);
 
-  URL.revokeObjectURL(url);
-}
-  </script>
+    link.href =
+      url;
+
+
+    link.download =
+      "ITAM_PAY_Laporan_" +
+      hasil.tanggal +
+      ".xls";
+
+
+    document.body.appendChild(
+      link
+    );
+
+
+    link.click();
+
+
+    document.body.removeChild(
+      link
+    );
+
+
+    URL.revokeObjectURL(
+      url
+    );
+
+  }
+
+</script>
+
 
 </body>
 
