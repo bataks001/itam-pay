@@ -851,144 +851,194 @@
     }
 
 
-    /* ==============================
-       MOBILE
-    ============================== */
+/* ==============================
+   RESPONSIVE MOBILE
+   Ukuran menyesuaikan lebar layar
+   tanpa mengubah desain
+============================== */
 
-    @media (max-width: 480px) {
+@media (max-width: 600px) {
 
-      body {
-        padding: 8px;
-      }
+  body {
+    padding: clamp(6px, 2vw, 10px);
+  }
 
-      .header {
-        width: 96%;
+  .header {
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
 
-        margin-left: auto;
-        margin-right: auto;
+    padding:
+      clamp(24px, 7vw, 34px)
+      clamp(14px, 4.5vw, 20px);
+  }
 
-        padding: 34px 18px;
-      }
+  .headerContent {
+    gap: clamp(8px, 2.5vw, 14px);
+  }
 
-      .header h1 {
-        font-size: 46px;
-      }
+  .headerLogo {
+    width: clamp(58px, 18vw, 84px);
+    height: clamp(58px, 18vw, 84px);
+    flex-basis: clamp(58px, 18vw, 84px);
 
-      .header p {
-        font-size: 11px;
+    border-radius: clamp(12px, 4vw, 16px);
+  }
 
-        white-space: nowrap;
+  .header h1 {
+    font-size: clamp(30px, 11vw, 50px);
+  }
 
-        letter-spacing: -.2px;
-      }
+  .header p {
+    font-size: clamp(9px, 3vw, 13px);
+    white-space: nowrap;
+    letter-spacing: -.2px;
+  }
 
-      .headerLogo {
-        width: 70px;
-        height: 70px;
-        flex-basis: 70px;
-      }
+  .headerActions {
+    top: clamp(7px, 2.5vw, 10px);
+    right: clamp(7px, 2.5vw, 10px);
 
-      .headerContent {
-        gap: 10px;
-      }
+    gap: clamp(4px, 1.5vw, 7px);
+  }
 
-      .headerActions {
-        top: 9px;
-        right: 9px;
+  .headerActionButton {
+    width: clamp(32px, 10vw, 40px);
+    height: clamp(32px, 10vw, 40px);
+    min-width: clamp(32px, 10vw, 40px);
 
-        gap: 5px;
-      }
+    font-size: clamp(16px, 5vw, 20px);
+  }
 
-      .headerActionButton {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
 
-        font-size: 18px;
-      }
+  /* ==============================
+     DASHBOARD
+  ============================== */
 
-      .card {
-        padding: 22px;
-      }
+  .dashboard {
+    gap: clamp(8px, 3vw, 14px);
+    margin-bottom: clamp(14px, 4vw, 20px);
+  }
 
-      .icon {
-        font-size: 44px;
-      }
+  .card {
+    padding: clamp(12px, 4vw, 22px);
+    border-radius: clamp(14px, 4.5vw, 18px);
+  }
 
-      .angka {
-        font-size: 30px;
-        white-space: nowrap;
-      }
+  .icon {
+    font-size: clamp(26px, 8vw, 44px);
+    margin-bottom: 3px;
+  }
 
-      .judul {
-        font-size: 16px;
+  .angka {
+    font-size: clamp(24px, 7.5vw, 30px);
+    white-space: nowrap;
+    margin-bottom: 6px;
+  }
 
-        white-space: nowrap;
+  .judul {
+    font-size: clamp(13px, 4vw, 16px);
+    white-space: nowrap;
+    letter-spacing: -.3px;
+  }
 
-        letter-spacing: -.3px;
-      }
 
-      label {
-        font-size: 20px;
-      }
+  /* ==============================
+     FORM
+  ============================== */
 
-      select,
-      input {
-        height: 68px;
-        font-size: 23px;
-      }
+  .formBox {
+    padding: clamp(18px, 6vw, 28px);
+    border-radius: clamp(16px, 5vw, 20px);
+  }
 
-      button {
-        height: 68px;
-        font-size: 26px;
-      }
+  label {
+    font-size: clamp(16px, 5vw, 20px);
 
-      .history h3 {
-        font-size: 24px;
-      }
+    margin-top: clamp(14px, 5vw, 20px);
+    margin-bottom: clamp(7px, 2.5vw, 10px);
+  }
 
-      .itemRiwayat {
-        font-size: 18px;
-      }
+  select,
+  input {
+    height: clamp(52px, 17vw, 68px);
+    font-size: clamp(18px, 5.8vw, 23px);
+  }
 
-      .itemRiwayat > div:nth-child(2) {
-        min-width: 110px;
-      }
+  button {
+    height: clamp(52px, 17vw, 68px);
+    font-size: clamp(20px, 6.5vw, 26px);
+  }
 
-      .settingsPanel {
-        top: 60px;
-      }
 
-      .laporanModal {
-        max-height: 94vh;
-      }
+  /* ==============================
+     RIWAYAT
+  ============================== */
 
-      .laporanTanggalRow {
-        flex-direction: column;
-      }
+  .history h3 {
+    font-size: clamp(19px, 6vw, 24px);
+  }
 
-      .laporanTanggalInput,
-      .btnTampilkanLaporan {
-        width: 100% !important;
-      }
+  .itemRiwayat {
+    font-size: clamp(15px, 4.7vw, 18px);
+  }
 
-      .laporanSummary {
-        gap: 6px;
-      }
+  .itemRiwayat > div:nth-child(2) {
+    min-width: clamp(85px, 28vw, 110px);
+  }
 
-      .summaryCard {
-        padding: 10px 5px;
-      }
 
-      .summaryCard .summaryNumber {
-        font-size: 17px;
-      }
+  /* ==============================
+     PENGATURAN
+  ============================== */
 
-      .summaryCard .summaryLabel {
-        font-size: 11px;
-      }
+  .settingsPanel {
+    top: clamp(55px, 15vw, 70px);
+    right: clamp(8px, 3vw, 12px);
 
-    }
+    width: min(
+      420px,
+      calc(100% - 16px)
+    );
+  }
+
+
+  /* ==============================
+     LAPORAN
+  ============================== */
+
+  .laporanModal {
+    max-height: 94vh;
+  }
+
+  .laporanTanggalRow {
+    flex-direction: column;
+  }
+
+  .laporanTanggalInput,
+  .btnTampilkanLaporan {
+    width: 100% !important;
+  }
+
+  .laporanSummary {
+    gap: clamp(4px, 2vw, 6px);
+  }
+
+  .summaryCard {
+    padding:
+      clamp(8px, 3vw, 10px)
+      clamp(4px, 2vw, 5px);
+  }
+
+  .summaryCard .summaryNumber {
+    font-size: clamp(15px, 4.5vw, 17px);
+  }
+
+  .summaryCard .summaryLabel {
+    font-size: clamp(9px, 3vw, 11px);
+  }
+
+}
 
   </style>
 
