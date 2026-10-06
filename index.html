@@ -1039,7 +1039,69 @@
   }
 
 }
+  .summaryCard .summaryLabel {
+    font-size: clamp(9px, 3vw, 11px);
+  }
 
+}
+
+
+/* ==========================================
+   KOREKSI HP LAYAR LEBIH LEBAR
+   Contoh: Redmi Note 12
+   Redmi Note 8 tidak terkena aturan ini
+========================================== */
+
+@media (min-width: 380px) and (max-width: 600px) {
+
+  /* ==============================
+     DASHBOARD
+  ============================== */
+
+  .icon {
+    font-size: 29px;
+  }
+
+  .angka {
+    font-size: 27px;
+  }
+
+  .judul {
+    font-size: 14px;
+    letter-spacing: -0.2px;
+  }
+
+
+  /* ==============================
+     TOMBOL SIMPAN
+  ============================== */
+
+  .btnSave {
+    font-size: 23px;
+  }
+
+
+  /* ==============================
+     LABEL FORM
+  ============================== */
+
+  label {
+    font-size: 18px;
+  }
+
+
+  /* ==============================
+     INPUT & SELECT
+  ============================== */
+
+  select,
+  input {
+    font-size: 21px;
+  }
+
+}
+
+</style>
   </style>
 
 </head>
